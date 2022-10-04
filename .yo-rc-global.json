@@ -1,0 +1,8 @@
+{
+  "generator-jhipster:7.9.3": {
+    "promptValues": {
+      "packageName": "com.unicamp.pedpao",
+      "nativeLanguage": "pt-br"
+    }
+  }
+}
