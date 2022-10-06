@@ -23,9 +23,9 @@ export const Home = () => {
           um pãozinho quente!
         </h2>
         <p className="lead">Já pensou receber todos os dias</p>
-        <h1>Mais cards aqui para produtos</h1>
       </Col>
       <Row>
+        <h1 className="center">Veja e aprecie nossos produtos!</h1>
         <Col md="3">
           <Card
             style={{
