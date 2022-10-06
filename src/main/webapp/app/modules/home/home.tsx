@@ -1,24 +1,80 @@
 import './home.scss';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Row, Col, Alert } from 'reactstrap';
+import {
+  Row,
+  Col,
+  Alert,
+  Card,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  CardText,
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption,
+} from 'reactstrap';
 
 import { useAppSelector } from 'app/config/store';
 
 export const Home = () => {
   const account = useAppSelector(state => state.authentication.account);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <Row>
-      <Col md="3" className="pad">
+      <Col md="12" className="pad">
         <span className="hipster rounded" />
       </Col>
-      <Col md="9">
-        <h2>Bem vindo, Java Hipster!</h2>
-        <p className="lead">Esta é a página principal</p>
-        {account?.login ? (
+      <Col md="12 center">
+        <h2>
+          Nada melhor que acordar com
+          <br />
+          um pãozinho quente!
+        </h2>
+        <p className="lead">Já pensou receber todos os dias</p>
+        <h1>Mais cards aqui para produtos</h1>
+      </Col>
+      <Col md="3"></Col>
+      <Col md="3">
+        <Card
+          style={{
+            width: '18rem',
+          }}
+        >
+          <img alt="Sample" src="../../../content/images/pao-caseiro.jpg" />
+          <CardBody>
+            <CardTitle tag="h5">Pão Fresco</CardTitle>
+            <CardSubtitle className="mb-2 text-muted" tag="h6">
+              2 vezes/semana
+            </CardSubtitle>
+            <CardText>Que tal receber em sua casa, na sua hora? :)</CardText>
+          </CardBody>
+        </Card>
+      </Col>
+      <Col md="6">
+        <Card
+          style={{
+            width: '18rem',
+          }}
+        >
+          <img alt="Sample" src="../../../content/images/pao-forma-caseiro.jpg" />
+          <CardBody>
+            <CardTitle tag="h5">Pão de Forma</CardTitle>
+            <CardSubtitle className="mb-2 text-muted" tag="h6">
+              Todos os dias
+            </CardSubtitle>
+            <CardText>Quanto pão!</CardText>
+          </CardBody>
+        </Card>
+      </Col>
+      <h1>Sobre nós, explicar o produto</h1>
+
+      {/* {account?.login ? (
           <div>
             <Alert color="success">Você está logado como &quot;{account.login}&quot;.</Alert>
           </div>
@@ -79,8 +135,7 @@ export const Home = () => {
             GitHub
           </a>
           !
-        </p>
-      </Col>
+        </p> */}
     </Row>
   );
 };
