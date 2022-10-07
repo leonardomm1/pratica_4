@@ -38,7 +38,6 @@ entity Assinatura {
 entity ItemsAssinatura {
 	id Long required unique min(1),
     padariaId Long required min(1),
-    assinaturaId Long required min(1),
     nome String required minlength(3) maxlength(255),
     valor BigDecimal required min(1),
     foto ImageBlob
