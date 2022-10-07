@@ -875,6 +875,7 @@ paths:
 components:
     schemas:
         PadariaDTO:
+            description: Informações da nova Padaria
             required:
                 - bairro
                 - cep
@@ -889,52 +890,65 @@ components:
             type: object
             properties:
                 id:
+                    description: id da Padaria
                     minimum: 1
                     type: integer
                     format: int64
                 nome:
+                    description: Nome da Padaria
                     maxLength: 255
                     minLength: 3
                     type: string
                 fantasia:
+                    description: Nome fantasia da Padaria
                     maxLength: 255
                     minLength: 3
                     type: string
                 telefone:
+                    description: Telefone para contato
                     maxLength: 15
                     minLength: 10
                     type: string
                 cnpj:
+                    description: Documento jurídico
                     maxLength: 14
                     minLength: 14
                     type: string
                 cep:
+                    description: CEP do logradouro
                     maxLength: 8
                     minLength: 8
                     type: string
                 rua:
+                    description: Nome do logradouro
                     maxLength: 255
                     minLength: 3
                     type: string
                 bairro:
+                    description: Bairro do logradouro
                     maxLength: 255
                     minLength: 3
                     type: string
                 estado:
+                    description: Estado do logradouro
                     maxLength: 2
                     minLength: 2
                     type: string
                 numero:
+                    description: Número do logradouro
                     maxLength: 255
                     minLength: 1
                     type: string
                 complemento:
+                    description: Informações adicionais
                     type: string
                 contato:
+                    description: Nome de contato
                     type: string
                 user:
                     $ref: '#/components/schemas/UserDTO'
         UserDTO:
+            description: Objeto com informações de usuário
             type: object
             properties:
                 id:
@@ -943,6 +957,7 @@ components:
                 login:
                     type: string
         AssinaturaDTO:
+            description: Coleção de dados da Assinatura
             required:
                 - ativa
                 - id
@@ -953,37 +968,46 @@ components:
             type: object
             properties:
                 id:
+                    description: id da assinatura
                     minimum: 1
                     type: integer
                     format: int64
                 valor:
+                    description: Valor da assinatura
                     type: number
                 nome:
+                    description: Nome do pacote de assinatura
                     maxLength: 255
                     minLength: 3
                     type: string
                 quantidadeDias:
+                    description: Dias da entrega
                     minimum: 1
                     type: integer
                     format: int32
                 ativa:
+                    description: Assinatura ativa ou não.
                     type: boolean
                 pagamentoRecorrenciaId:
+                    description: Id da recorrência de cobrança
                     minimum: 1
                     type: integer
                     format: int64
                 foto:
+                    description: Imagem da assinatura
                     type: array
                     items:
                         type: string
                         format: byte
                 fotoContentType:
+                    description: Tipo de imagem da assinatura
                     type: string
                 padaria:
                     $ref: '#/components/schemas/PadariaDTO'
                 user:
                     $ref: '#/components/schemas/UserDTO'
         ItemsAssinaturaDTO:
+            description: Itens que compõe o pacote da assinatura
             required:
                 - id
                 - nome
@@ -992,30 +1016,37 @@ components:
             type: object
             properties:
                 id:
+                    description: Id do pacote
                     minimum: 1
                     type: integer
                     format: int64
                 padariaId:
+                    description: Padaria que o pacote pertence
                     minimum: 1
                     type: integer
                     format: int64
                 nome:
+                    description: Nome do pacote assinatura
                     maxLength: 255
                     minLength: 3
                     type: string
                 valor:
+                    description: Valor do pacote
                     minimum: 1
                     type: number
                 foto:
+                    description: Foto do pacote de assinatura
                     type: array
                     items:
                         type: string
                         format: byte
                 fotoContentType:
+                    description: Tipo de foto
                     type: string
                 assinatura:
                     $ref: '#/components/schemas/AssinaturaDTO'
         InformacoesAdicionaisDTO:
+            description: Mais informações do usuário
             required:
                 - bairro
                 - cep
@@ -1028,169 +1059,213 @@ components:
             type: object
             properties:
                 id:
+                    description: id das informações do usuário
                     minimum: 1
                     type: integer
                     format: int64
                 telefone:
+                    description: Telefone de contato do usuário
                     maxLength: 15
                     minLength: 10
                     type: string
                 cpf:
+                    description: Documento do usuário
                     maxLength: 11
                     minLength: 11
                     type: string
                 cep:
+                    description: CEP do usuário
                     maxLength: 8
                     minLength: 8
                     type: string
                 rua:
+                    description: Logradouro do usuário
                     maxLength: 255
                     minLength: 3
                     type: string
                 bairro:
+                    description: Bairo do usuário
                     maxLength: 255
                     minLength: 3
                     type: string
                 estado:
+                    description: Estado do usuário
                     maxLength: 2
                     minLength: 2
                     type: string
                 numero:
+                    description: Número da residência do usuário
                     maxLength: 255
                     minLength: 1
                     type: string
                 complemento:
+                    description: Complemento da residência do usuário
                     type: string
                 user:
                     $ref: '#/components/schemas/UserDTO'
         AdminUserDTO:
+            description: Usuário admin
             required:
                 - login
             type: object
             properties:
                 id:
+                    description: id do usuário
                     type: integer
                     format: int64
                 login:
+                    description: Login do usuário
                     maxLength: 50
                     minLength: 1
                     pattern: >-
                         ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
                     type: string
                 firstName:
+                    description: Primeiro nome
                     maxLength: 50
                     minLength: 0
                     type: string
                 lastName:
+                    description: Último nome
                     maxLength: 50
                     minLength: 0
                     type: string
                 email:
+                    description: Email do usuário
                     maxLength: 254
                     minLength: 5
                     type: string
                 imageUrl:
+                    description: Caminho do Avatar
                     maxLength: 256
                     minLength: 0
                     type: string
                 activated:
+                    description: Ativo ou não
                     type: boolean
                 langKey:
+                    description: Linguagem do usuário
                     maxLength: 10
                     minLength: 2
                     type: string
                 createdBy:
+                    description: Usuário que criou a conta
                     type: string
                 createdDate:
+                    description: Data da criação
                     type: string
                     format: date-time
                 lastModifiedBy:
+                    description: Último usuário a modificar
                     type: string
                 lastModifiedDate:
+                    description: Data da última modificação
                     type: string
                     format: date-time
                 authorities:
+                    description: Permissões
                     uniqueItems: true
                     type: array
                     items:
                         type: string
         ManagedUserVM:
+            description: Usuário gerente
             required:
                 - login
             type: object
             properties:
                 id:
+                    description: id do usuário
                     type: integer
                     format: int64
                 login:
+                    description: login do usuário
                     maxLength: 50
                     minLength: 1
                     pattern: >-
                         ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
                     type: string
                 firstName:
+                    description: Primeiro nome do usuário
                     maxLength: 50
                     minLength: 0
                     type: string
                 lastName:
+                    description: Último nome do usuário
                     maxLength: 50
                     minLength: 0
                     type: string
                 email:
+                    description: Email do usuário
                     maxLength: 254
                     minLength: 5
                     type: string
                 imageUrl:
+                    description: Caminho do Avatar
                     maxLength: 256
                     minLength: 0
                     type: string
                 activated:
+                    description: Ativo ou não
                     type: boolean
                 langKey:
+                    description: Linguagem do usuário
                     maxLength: 10
                     minLength: 2
                     type: string
                 createdBy:
+                    description: Usuário que criou a conta
                     type: string
                 createdDate:
+                    description: Data da criação
                     type: string
                     format: date-time
                 lastModifiedBy:
+                    description: Último usuário a modificar
                     type: string
                 lastModifiedDate:
+                    description: Data da última modificação
                     type: string
                     format: date-time
                 authorities:
+                    description: Permissões
                     uniqueItems: true
                     type: array
                     items:
                         type: string
                 password:
+                    description: Senha do usuário
                     maxLength: 100
                     minLength: 4
                     type: string
         LoginVM:
+            description: Informações de um Login
             required:
                 - password
                 - username
             type: object
             properties:
                 username:
+                    description: Login
                     maxLength: 50
                     minLength: 1
                     type: string
                 password:
+                    description: Senha
                     maxLength: 100
                     minLength: 4
                     type: string
                 rememberMe:
+                    description: Manter logado
                     type: boolean
         JWTToken:
             type: object
             properties:
                 id_token:
+                    description: Token gerado
                     type: string
         User:
+            description: Informações de usuário
             required:
                 - activated
                 - login
