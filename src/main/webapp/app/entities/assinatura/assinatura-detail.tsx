@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
-import { openFile, byteSize } from 'react-jhipster';
+import { openFile, byteSize, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
@@ -65,6 +65,26 @@ export const AssinaturaDetail = () => {
               </div>
             ) : null}
           </dd>
+          <dt>
+            <span id="quantidade">Quantidade</span>
+          </dt>
+          <dd>{assinaturaEntity.quantidade}</dd>
+          <dt>
+            <span id="horarioRecebimento">Horario Recebimento</span>
+          </dt>
+          <dd>
+            {assinaturaEntity.horarioRecebimento ? (
+              <TextFormat value={assinaturaEntity.horarioRecebimento} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
+            <span id="tipoAssinatura">Tipo Assinatura</span>
+          </dt>
+          <dd>{assinaturaEntity.tipoAssinatura}</dd>
+          <dt>
+            <span id="diaDaSemana">Dia Da Semana</span>
+          </dt>
+          <dd>{assinaturaEntity.diaDaSemana}</dd>
           <dt>Padaria</dt>
           <dd>{assinaturaEntity.padaria ? assinaturaEntity.padaria.id : ''}</dd>
           <dt>User</dt>

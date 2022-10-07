@@ -45,6 +45,10 @@ public class ItemsAssinatura implements Serializable {
     @Column(name = "foto_content_type")
     private String fotoContentType;
 
+    @Min(value = 1)
+    @Column(name = "quantidade")
+    private Integer quantidade;
+
     @ManyToOne
     @JsonIgnoreProperties(value = { "padaria", "user" }, allowSetters = true)
     private Assinatura assinatura;
@@ -129,6 +133,19 @@ public class ItemsAssinatura implements Serializable {
         this.fotoContentType = fotoContentType;
     }
 
+    public Integer getQuantidade() {
+        return this.quantidade;
+    }
+
+    public ItemsAssinatura quantidade(Integer quantidade) {
+        this.setQuantidade(quantidade);
+        return this;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
     public Assinatura getAssinatura() {
         return this.assinatura;
     }
@@ -171,6 +188,7 @@ public class ItemsAssinatura implements Serializable {
             ", valor=" + getValor() +
             ", foto='" + getFoto() + "'" +
             ", fotoContentType='" + getFotoContentType() + "'" +
+            ", quantidade=" + getQuantidade() +
             "}";
     }
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import { openFile, byteSize, Translate, getSortState, JhiPagination, JhiItemCount } from 'react-jhipster';
+import { openFile, byteSize, Translate, TextFormat, getSortState, JhiPagination, JhiItemCount } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
@@ -121,6 +121,18 @@ export const Assinatura = () => {
                 <th className="hand" onClick={sort('foto')}>
                   Foto <FontAwesomeIcon icon="sort" />
                 </th>
+                <th className="hand" onClick={sort('quantidade')}>
+                  Quantidade <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('horarioRecebimento')}>
+                  Horario Recebimento <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('tipoAssinatura')}>
+                  Tipo Assinatura <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('diaDaSemana')}>
+                  Dia Da Semana <FontAwesomeIcon icon="sort" />
+                </th>
                 <th>
                   Padaria <FontAwesomeIcon icon="sort" />
                 </th>
@@ -158,6 +170,14 @@ export const Assinatura = () => {
                       </div>
                     ) : null}
                   </td>
+                  <td>{assinatura.quantidade}</td>
+                  <td>
+                    {assinatura.horarioRecebimento ? (
+                      <TextFormat type="date" value={assinatura.horarioRecebimento} format={APP_DATE_FORMAT} />
+                    ) : null}
+                  </td>
+                  <td>{assinatura.tipoAssinatura}</td>
+                  <td>{assinatura.diaDaSemana}</td>
                   <td>{assinatura.padaria ? <Link to={`/padaria/${assinatura.padaria.id}`}>{assinatura.padaria.id}</Link> : ''}</td>
                   <td>{assinatura.user ? assinatura.user.id : ''}</td>
                   <td className="text-end">

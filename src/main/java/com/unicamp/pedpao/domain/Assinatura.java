@@ -3,6 +3,7 @@ package com.unicamp.pedpao.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -52,6 +53,23 @@ public class Assinatura implements Serializable {
 
     @Column(name = "foto_content_type")
     private String fotoContentType;
+
+    @Min(value = 1)
+    @Column(name = "quantidade")
+    private Integer quantidade;
+
+    @NotNull
+    @Column(name = "horario_recebimento", nullable = false)
+    private ZonedDateTime horarioRecebimento;
+
+    @NotNull
+    @Size(min = 3)
+    @Column(name = "tipo_assinatura", nullable = false)
+    private String tipoAssinatura;
+
+    @Lob
+    @Column(name = "dia_da_semana", nullable = false)
+    private String diaDaSemana;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "user" }, allowSetters = true)
@@ -166,6 +184,58 @@ public class Assinatura implements Serializable {
         this.fotoContentType = fotoContentType;
     }
 
+    public Integer getQuantidade() {
+        return this.quantidade;
+    }
+
+    public Assinatura quantidade(Integer quantidade) {
+        this.setQuantidade(quantidade);
+        return this;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public ZonedDateTime getHorarioRecebimento() {
+        return this.horarioRecebimento;
+    }
+
+    public Assinatura horarioRecebimento(ZonedDateTime horarioRecebimento) {
+        this.setHorarioRecebimento(horarioRecebimento);
+        return this;
+    }
+
+    public void setHorarioRecebimento(ZonedDateTime horarioRecebimento) {
+        this.horarioRecebimento = horarioRecebimento;
+    }
+
+    public String getTipoAssinatura() {
+        return this.tipoAssinatura;
+    }
+
+    public Assinatura tipoAssinatura(String tipoAssinatura) {
+        this.setTipoAssinatura(tipoAssinatura);
+        return this;
+    }
+
+    public void setTipoAssinatura(String tipoAssinatura) {
+        this.tipoAssinatura = tipoAssinatura;
+    }
+
+    public String getDiaDaSemana() {
+        return this.diaDaSemana;
+    }
+
+    public Assinatura diaDaSemana(String diaDaSemana) {
+        this.setDiaDaSemana(diaDaSemana);
+        return this;
+    }
+
+    public void setDiaDaSemana(String diaDaSemana) {
+        this.diaDaSemana = diaDaSemana;
+    }
+
     public Padaria getPadaria() {
         return this.padaria;
     }
@@ -223,6 +293,10 @@ public class Assinatura implements Serializable {
             ", pagamentoRecorrenciaId=" + getPagamentoRecorrenciaId() +
             ", foto='" + getFoto() + "'" +
             ", fotoContentType='" + getFotoContentType() + "'" +
+            ", quantidade=" + getQuantidade() +
+            ", horarioRecebimento='" + getHorarioRecebimento() + "'" +
+            ", tipoAssinatura='" + getTipoAssinatura() + "'" +
+            ", diaDaSemana='" + getDiaDaSemana() + "'" +
             "}";
     }
 }

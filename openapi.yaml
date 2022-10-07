@@ -960,10 +960,12 @@ components:
             description: Coleção de dados da Assinatura
             required:
                 - ativa
+                - horarioRecebimento
                 - id
                 - nome
                 - pagamentoRecorrenciaId
                 - quantidadeDias
+                - tipoAssinatura
                 - valor
             type: object
             properties:
@@ -1001,6 +1003,19 @@ components:
                         format: byte
                 fotoContentType:
                     description: Tipo de imagem da assinatura
+                    type: string
+                quantidade:
+                    minimum: 1
+                    type: integer
+                    format: int32
+                horarioRecebimento:
+                    type: string
+                    format: date-time
+                tipoAssinatura:
+                    maxLength: 2147483647
+                    minLength: 3
+                    type: string
+                diaDaSemana:
                     type: string
                 padaria:
                     $ref: '#/components/schemas/PadariaDTO'
@@ -1043,6 +1058,10 @@ components:
                 fotoContentType:
                     description: Tipo de foto
                     type: string
+                quantidade:
+                    minimum: 1
+                    type: integer
+                    format: int32
                 assinatura:
                     $ref: '#/components/schemas/AssinaturaDTO'
         InformacoesAdicionaisDTO:

@@ -7,6 +7,7 @@ export interface IItemsAssinatura {
   valor?: number;
   fotoContentType?: string | null;
   foto?: string | null;
+  quantidade?: number | null;
   assinatura?: IAssinatura | null;
 }
 
