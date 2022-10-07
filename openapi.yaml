@@ -375,9 +375,7 @@ paths:
                       default: 20
                 - name: sort
                   in: query
-                  description: >-
-                      Sorting criteria in the format: property,(asc|desc). Default sort
-                      order is ascending. Multiple sort criteria are supported.
+                  description: 'Sorting criteria in the format: property, (asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
                   required: false
                   schema:
                       type: array
@@ -464,9 +462,7 @@ paths:
                       default: 20
                 - name: sort
                   in: query
-                  description: >-
-                      Sorting criteria in the format: property,(asc|desc). Default sort
-                      order is ascending. Multiple sort criteria are supported.
+                  description: 'Sorting criteria in the format: property, (asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
                   required: false
                   schema:
                       type: array
@@ -522,9 +518,7 @@ paths:
                       default: 20
                 - name: sort
                   in: query
-                  description: >-
-                      Sorting criteria in the format: property,(asc|desc). Default sort
-                      order is ascending. Multiple sort criteria are supported.
+                  description: 'Sorting criteria in the format: property, (asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
                   required: false
                   schema:
                       type: array
@@ -580,9 +574,7 @@ paths:
                       default: 20
                 - name: sort
                   in: query
-                  description: >-
-                      Sorting criteria in the format: property,(asc|desc). Default sort
-                      order is ascending. Multiple sort criteria are supported.
+                  description: 'Sorting criteria in the format: property, (asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
                   required: false
                   schema:
                       type: array
@@ -667,9 +659,7 @@ paths:
                       default: 20
                 - name: sort
                   in: query
-                  description: >-
-                      Sorting criteria in the format: property,(asc|desc). Default sort
-                      order is ascending. Multiple sort criteria are supported.
+                  description: 'Sorting criteria in the format: property, (asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
                   required: false
                   schema:
                       type: array
@@ -792,9 +782,7 @@ paths:
                       default: 20
                 - name: sort
                   in: query
-                  description: >-
-                      Sorting criteria in the format: property,(asc|desc). Default sort
-                      order is ascending. Multiple sort criteria are supported.
+                  description: 'Sorting criteria in the format: property, (asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
                   required: false
                   schema:
                       type: array
@@ -833,8 +821,7 @@ paths:
                   in: path
                   required: true
                   schema:
-                      pattern: >-
-                          ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+                      pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
                       type: string
             responses:
                 '200':
@@ -852,8 +839,7 @@ paths:
                   in: path
                   required: true
                   schema:
-                      pattern: >-
-                          ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+                      pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
                       type: string
             responses:
                 '200':
@@ -1093,8 +1079,7 @@ components:
                 login:
                     maxLength: 50
                     minLength: 1
-                    pattern: >-
-                        ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+                    pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
                     type: string
                 firstName:
                     maxLength: 50
@@ -1144,8 +1129,7 @@ components:
                 login:
                     maxLength: 50
                     minLength: 1
-                    pattern: >-
-                        ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+                    pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
                     type: string
                 firstName:
                     maxLength: 50
@@ -1221,8 +1205,7 @@ components:
                 login:
                     maxLength: 50
                     minLength: 1
-                    pattern: >-
-                        ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+                    pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
                     type: string
                 firstName:
                     maxLength: 50
