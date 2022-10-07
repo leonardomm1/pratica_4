@@ -34,6 +34,12 @@
       "fieldName": "foto",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "quantidade",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "1"
     }
   ],
   "fluentMethods": true,

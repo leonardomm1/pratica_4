@@ -52,6 +52,8 @@ export const AssinaturaUpdate = () => {
   }, [updateSuccess]);
 
   const saveEntity = values => {
+    values.horarioRecebimento = convertDateTimeToServer(values.horarioRecebimento);
+
     const entity = {
       ...assinaturaEntity,
       ...values,
@@ -68,9 +70,12 @@ export const AssinaturaUpdate = () => {
 
   const defaultValues = () =>
     isNew
-      ? {}
+      ? {
+          horarioRecebimento: displayDefaultDateTime(),
+        }
       : {
           ...assinaturaEntity,
+          horarioRecebimento: convertDateTimeFromServer(assinaturaEntity.horarioRecebimento),
           padaria: assinaturaEntity?.padaria?.id,
           user: assinaturaEntity?.user?.id,
         };
@@ -140,6 +145,49 @@ export const AssinaturaUpdate = () => {
                 }}
               />
               <ValidatedBlobField label="Foto" id="assinatura-foto" name="foto" data-cy="foto" isImage accept="image/*" />
+              <ValidatedField
+                label="Quantidade"
+                id="assinatura-quantidade"
+                name="quantidade"
+                data-cy="quantidade"
+                type="text"
+                validate={{
+                  min: { value: 1, message: 'Este campo deve ser maior que 1.' },
+                  validate: v => isNumber(v) || 'Este campo é do tipo numérico.',
+                }}
+              />
+              <ValidatedField
+                label="Horario Recebimento"
+                id="assinatura-horarioRecebimento"
+                name="horarioRecebimento"
+                data-cy="horarioRecebimento"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: 'O campo é obrigatório.' },
+                }}
+              />
+              <ValidatedField
+                label="Tipo Assinatura"
+                id="assinatura-tipoAssinatura"
+                name="tipoAssinatura"
+                data-cy="tipoAssinatura"
+                type="text"
+                validate={{
+                  required: { value: true, message: 'O campo é obrigatório.' },
+                  minLength: { value: 3, message: 'Este campo deve ter pelo menos 3 caracteres.' },
+                }}
+              />
+              <ValidatedField
+                label="Dia Da Semana"
+                id="assinatura-diaDaSemana"
+                name="diaDaSemana"
+                data-cy="diaDaSemana"
+                type="textarea"
+                validate={{
+                  required: { value: true, message: 'O campo é obrigatório.' },
+                }}
+              />
               <ValidatedField id="assinatura-padaria" name="padaria" data-cy="padaria" label="Padaria" type="select">
                 <option value="" key="0" />
                 {padarias

@@ -1,5 +1,6 @@
 package com.unicamp.pedpao.web.rest;
 
+import static com.unicamp.pedpao.web.rest.TestUtil.sameInstant;
 import static com.unicamp.pedpao.web.rest.TestUtil.sameNumber;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
@@ -12,6 +13,10 @@ import com.unicamp.pedpao.repository.AssinaturaRepository;
 import com.unicamp.pedpao.service.dto.AssinaturaDTO;
 import com.unicamp.pedpao.service.mapper.AssinaturaMapper;
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -54,6 +59,18 @@ class AssinaturaResourceIT {
     private static final String DEFAULT_FOTO_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_FOTO_CONTENT_TYPE = "image/png";
 
+    private static final Integer DEFAULT_QUANTIDADE = 1;
+    private static final Integer UPDATED_QUANTIDADE = 2;
+
+    private static final ZonedDateTime DEFAULT_HORARIO_RECEBIMENTO = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
+    private static final ZonedDateTime UPDATED_HORARIO_RECEBIMENTO = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+
+    private static final String DEFAULT_TIPO_ASSINATURA = "AAAAAAAAAA";
+    private static final String UPDATED_TIPO_ASSINATURA = "BBBBBBBBBB";
+
+    private static final String DEFAULT_DIA_DA_SEMANA = "AAAAAAAAAA";
+    private static final String UPDATED_DIA_DA_SEMANA = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/assinaturas";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -88,7 +105,11 @@ class AssinaturaResourceIT {
             .ativa(DEFAULT_ATIVA)
             .pagamentoRecorrenciaId(DEFAULT_PAGAMENTO_RECORRENCIA_ID)
             .foto(DEFAULT_FOTO)
-            .fotoContentType(DEFAULT_FOTO_CONTENT_TYPE);
+            .fotoContentType(DEFAULT_FOTO_CONTENT_TYPE)
+            .quantidade(DEFAULT_QUANTIDADE)
+            .horarioRecebimento(DEFAULT_HORARIO_RECEBIMENTO)
+            .tipoAssinatura(DEFAULT_TIPO_ASSINATURA)
+            .diaDaSemana(DEFAULT_DIA_DA_SEMANA);
         return assinatura;
     }
 
@@ -106,7 +127,11 @@ class AssinaturaResourceIT {
             .ativa(UPDATED_ATIVA)
             .pagamentoRecorrenciaId(UPDATED_PAGAMENTO_RECORRENCIA_ID)
             .foto(UPDATED_FOTO)
-            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE)
+            .quantidade(UPDATED_QUANTIDADE)
+            .horarioRecebimento(UPDATED_HORARIO_RECEBIMENTO)
+            .tipoAssinatura(UPDATED_TIPO_ASSINATURA)
+            .diaDaSemana(UPDATED_DIA_DA_SEMANA);
         return assinatura;
     }
 
@@ -136,6 +161,10 @@ class AssinaturaResourceIT {
         assertThat(testAssinatura.getPagamentoRecorrenciaId()).isEqualTo(DEFAULT_PAGAMENTO_RECORRENCIA_ID);
         assertThat(testAssinatura.getFoto()).isEqualTo(DEFAULT_FOTO);
         assertThat(testAssinatura.getFotoContentType()).isEqualTo(DEFAULT_FOTO_CONTENT_TYPE);
+        assertThat(testAssinatura.getQuantidade()).isEqualTo(DEFAULT_QUANTIDADE);
+        assertThat(testAssinatura.getHorarioRecebimento()).isEqualTo(DEFAULT_HORARIO_RECEBIMENTO);
+        assertThat(testAssinatura.getTipoAssinatura()).isEqualTo(DEFAULT_TIPO_ASSINATURA);
+        assertThat(testAssinatura.getDiaDaSemana()).isEqualTo(DEFAULT_DIA_DA_SEMANA);
     }
 
     @Test
@@ -249,6 +278,42 @@ class AssinaturaResourceIT {
 
     @Test
     @Transactional
+    void checkHorarioRecebimentoIsRequired() throws Exception {
+        int databaseSizeBeforeTest = assinaturaRepository.findAll().size();
+        // set the field null
+        assinatura.setHorarioRecebimento(null);
+
+        // Create the Assinatura, which fails.
+        AssinaturaDTO assinaturaDTO = assinaturaMapper.toDto(assinatura);
+
+        restAssinaturaMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(assinaturaDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Assinatura> assinaturaList = assinaturaRepository.findAll();
+        assertThat(assinaturaList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    void checkTipoAssinaturaIsRequired() throws Exception {
+        int databaseSizeBeforeTest = assinaturaRepository.findAll().size();
+        // set the field null
+        assinatura.setTipoAssinatura(null);
+
+        // Create the Assinatura, which fails.
+        AssinaturaDTO assinaturaDTO = assinaturaMapper.toDto(assinatura);
+
+        restAssinaturaMockMvc
+            .perform(post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(assinaturaDTO)))
+            .andExpect(status().isBadRequest());
+
+        List<Assinatura> assinaturaList = assinaturaRepository.findAll();
+        assertThat(assinaturaList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     void getAllAssinaturas() throws Exception {
         // Initialize the database
         assinaturaRepository.saveAndFlush(assinatura);
@@ -265,7 +330,11 @@ class AssinaturaResourceIT {
             .andExpect(jsonPath("$.[*].ativa").value(hasItem(DEFAULT_ATIVA.booleanValue())))
             .andExpect(jsonPath("$.[*].pagamentoRecorrenciaId").value(hasItem(DEFAULT_PAGAMENTO_RECORRENCIA_ID.intValue())))
             .andExpect(jsonPath("$.[*].fotoContentType").value(hasItem(DEFAULT_FOTO_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].foto").value(hasItem(Base64Utils.encodeToString(DEFAULT_FOTO))));
+            .andExpect(jsonPath("$.[*].foto").value(hasItem(Base64Utils.encodeToString(DEFAULT_FOTO))))
+            .andExpect(jsonPath("$.[*].quantidade").value(hasItem(DEFAULT_QUANTIDADE)))
+            .andExpect(jsonPath("$.[*].horarioRecebimento").value(hasItem(sameInstant(DEFAULT_HORARIO_RECEBIMENTO))))
+            .andExpect(jsonPath("$.[*].tipoAssinatura").value(hasItem(DEFAULT_TIPO_ASSINATURA)))
+            .andExpect(jsonPath("$.[*].diaDaSemana").value(hasItem(DEFAULT_DIA_DA_SEMANA.toString())));
     }
 
     @Test
@@ -286,7 +355,11 @@ class AssinaturaResourceIT {
             .andExpect(jsonPath("$.ativa").value(DEFAULT_ATIVA.booleanValue()))
             .andExpect(jsonPath("$.pagamentoRecorrenciaId").value(DEFAULT_PAGAMENTO_RECORRENCIA_ID.intValue()))
             .andExpect(jsonPath("$.fotoContentType").value(DEFAULT_FOTO_CONTENT_TYPE))
-            .andExpect(jsonPath("$.foto").value(Base64Utils.encodeToString(DEFAULT_FOTO)));
+            .andExpect(jsonPath("$.foto").value(Base64Utils.encodeToString(DEFAULT_FOTO)))
+            .andExpect(jsonPath("$.quantidade").value(DEFAULT_QUANTIDADE))
+            .andExpect(jsonPath("$.horarioRecebimento").value(sameInstant(DEFAULT_HORARIO_RECEBIMENTO)))
+            .andExpect(jsonPath("$.tipoAssinatura").value(DEFAULT_TIPO_ASSINATURA))
+            .andExpect(jsonPath("$.diaDaSemana").value(DEFAULT_DIA_DA_SEMANA.toString()));
     }
 
     @Test
@@ -315,7 +388,11 @@ class AssinaturaResourceIT {
             .ativa(UPDATED_ATIVA)
             .pagamentoRecorrenciaId(UPDATED_PAGAMENTO_RECORRENCIA_ID)
             .foto(UPDATED_FOTO)
-            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE)
+            .quantidade(UPDATED_QUANTIDADE)
+            .horarioRecebimento(UPDATED_HORARIO_RECEBIMENTO)
+            .tipoAssinatura(UPDATED_TIPO_ASSINATURA)
+            .diaDaSemana(UPDATED_DIA_DA_SEMANA);
         AssinaturaDTO assinaturaDTO = assinaturaMapper.toDto(updatedAssinatura);
 
         restAssinaturaMockMvc
@@ -337,6 +414,10 @@ class AssinaturaResourceIT {
         assertThat(testAssinatura.getPagamentoRecorrenciaId()).isEqualTo(UPDATED_PAGAMENTO_RECORRENCIA_ID);
         assertThat(testAssinatura.getFoto()).isEqualTo(UPDATED_FOTO);
         assertThat(testAssinatura.getFotoContentType()).isEqualTo(UPDATED_FOTO_CONTENT_TYPE);
+        assertThat(testAssinatura.getQuantidade()).isEqualTo(UPDATED_QUANTIDADE);
+        assertThat(testAssinatura.getHorarioRecebimento()).isEqualTo(UPDATED_HORARIO_RECEBIMENTO);
+        assertThat(testAssinatura.getTipoAssinatura()).isEqualTo(UPDATED_TIPO_ASSINATURA);
+        assertThat(testAssinatura.getDiaDaSemana()).isEqualTo(UPDATED_DIA_DA_SEMANA);
     }
 
     @Test
@@ -421,7 +502,9 @@ class AssinaturaResourceIT {
             .quantidadeDias(UPDATED_QUANTIDADE_DIAS)
             .ativa(UPDATED_ATIVA)
             .foto(UPDATED_FOTO)
-            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE)
+            .quantidade(UPDATED_QUANTIDADE)
+            .horarioRecebimento(UPDATED_HORARIO_RECEBIMENTO);
 
         restAssinaturaMockMvc
             .perform(
@@ -442,6 +525,10 @@ class AssinaturaResourceIT {
         assertThat(testAssinatura.getPagamentoRecorrenciaId()).isEqualTo(DEFAULT_PAGAMENTO_RECORRENCIA_ID);
         assertThat(testAssinatura.getFoto()).isEqualTo(UPDATED_FOTO);
         assertThat(testAssinatura.getFotoContentType()).isEqualTo(UPDATED_FOTO_CONTENT_TYPE);
+        assertThat(testAssinatura.getQuantidade()).isEqualTo(UPDATED_QUANTIDADE);
+        assertThat(testAssinatura.getHorarioRecebimento()).isEqualTo(UPDATED_HORARIO_RECEBIMENTO);
+        assertThat(testAssinatura.getTipoAssinatura()).isEqualTo(DEFAULT_TIPO_ASSINATURA);
+        assertThat(testAssinatura.getDiaDaSemana()).isEqualTo(DEFAULT_DIA_DA_SEMANA);
     }
 
     @Test
@@ -463,7 +550,11 @@ class AssinaturaResourceIT {
             .ativa(UPDATED_ATIVA)
             .pagamentoRecorrenciaId(UPDATED_PAGAMENTO_RECORRENCIA_ID)
             .foto(UPDATED_FOTO)
-            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE)
+            .quantidade(UPDATED_QUANTIDADE)
+            .horarioRecebimento(UPDATED_HORARIO_RECEBIMENTO)
+            .tipoAssinatura(UPDATED_TIPO_ASSINATURA)
+            .diaDaSemana(UPDATED_DIA_DA_SEMANA);
 
         restAssinaturaMockMvc
             .perform(
@@ -484,6 +575,10 @@ class AssinaturaResourceIT {
         assertThat(testAssinatura.getPagamentoRecorrenciaId()).isEqualTo(UPDATED_PAGAMENTO_RECORRENCIA_ID);
         assertThat(testAssinatura.getFoto()).isEqualTo(UPDATED_FOTO);
         assertThat(testAssinatura.getFotoContentType()).isEqualTo(UPDATED_FOTO_CONTENT_TYPE);
+        assertThat(testAssinatura.getQuantidade()).isEqualTo(UPDATED_QUANTIDADE);
+        assertThat(testAssinatura.getHorarioRecebimento()).isEqualTo(UPDATED_HORARIO_RECEBIMENTO);
+        assertThat(testAssinatura.getTipoAssinatura()).isEqualTo(UPDATED_TIPO_ASSINATURA);
+        assertThat(testAssinatura.getDiaDaSemana()).isEqualTo(UPDATED_DIA_DA_SEMANA);
     }
 
     @Test

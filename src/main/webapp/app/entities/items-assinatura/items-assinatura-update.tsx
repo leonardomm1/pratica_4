@@ -124,6 +124,17 @@ export const ItemsAssinaturaUpdate = () => {
                 }}
               />
               <ValidatedBlobField label="Foto" id="items-assinatura-foto" name="foto" data-cy="foto" isImage accept="image/*" />
+              <ValidatedField
+                label="Quantidade"
+                id="items-assinatura-quantidade"
+                name="quantidade"
+                data-cy="quantidade"
+                type="text"
+                validate={{
+                  min: { value: 1, message: 'Este campo deve ser maior que 1.' },
+                  validate: v => isNumber(v) || 'Este campo é do tipo numérico.',
+                }}
+              />
               <ValidatedField id="items-assinatura-assinatura" name="assinatura" data-cy="assinatura" label="Assinatura" type="select">
                 <option value="" key="0" />
                 {assinaturas

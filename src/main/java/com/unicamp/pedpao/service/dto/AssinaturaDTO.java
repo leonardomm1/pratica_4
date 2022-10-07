@@ -2,6 +2,7 @@ package com.unicamp.pedpao.service.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 import javax.persistence.Lob;
 import javax.validation.constraints.*;
@@ -38,6 +39,20 @@ public class AssinaturaDTO implements Serializable {
     private byte[] foto;
 
     private String fotoContentType;
+
+    @Min(value = 1)
+    private Integer quantidade;
+
+    @NotNull
+    private ZonedDateTime horarioRecebimento;
+
+    @NotNull
+    @Size(min = 3)
+    private String tipoAssinatura;
+
+    @Lob
+    private String diaDaSemana;
+
     private PadariaDTO padaria;
 
     private UserDTO user;
@@ -106,6 +121,38 @@ public class AssinaturaDTO implements Serializable {
         this.fotoContentType = fotoContentType;
     }
 
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public ZonedDateTime getHorarioRecebimento() {
+        return horarioRecebimento;
+    }
+
+    public void setHorarioRecebimento(ZonedDateTime horarioRecebimento) {
+        this.horarioRecebimento = horarioRecebimento;
+    }
+
+    public String getTipoAssinatura() {
+        return tipoAssinatura;
+    }
+
+    public void setTipoAssinatura(String tipoAssinatura) {
+        this.tipoAssinatura = tipoAssinatura;
+    }
+
+    public String getDiaDaSemana() {
+        return diaDaSemana;
+    }
+
+    public void setDiaDaSemana(String diaDaSemana) {
+        this.diaDaSemana = diaDaSemana;
+    }
+
     public PadariaDTO getPadaria() {
         return padaria;
     }
@@ -154,6 +201,10 @@ public class AssinaturaDTO implements Serializable {
             ", ativa='" + getAtiva() + "'" +
             ", pagamentoRecorrenciaId=" + getPagamentoRecorrenciaId() +
             ", foto='" + getFoto() + "'" +
+            ", quantidade=" + getQuantidade() +
+            ", horarioRecebimento='" + getHorarioRecebimento() + "'" +
+            ", tipoAssinatura='" + getTipoAssinatura() + "'" +
+            ", diaDaSemana='" + getDiaDaSemana() + "'" +
             ", padaria=" + getPadaria() +
             ", user=" + getUser() +
             "}";

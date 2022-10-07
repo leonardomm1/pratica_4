@@ -48,6 +48,9 @@ class ItemsAssinaturaResourceIT {
     private static final String DEFAULT_FOTO_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_FOTO_CONTENT_TYPE = "image/png";
 
+    private static final Integer DEFAULT_QUANTIDADE = 1;
+    private static final Integer UPDATED_QUANTIDADE = 2;
+
     private static final String ENTITY_API_URL = "/api/items-assinaturas";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -80,7 +83,8 @@ class ItemsAssinaturaResourceIT {
             .nome(DEFAULT_NOME)
             .valor(DEFAULT_VALOR)
             .foto(DEFAULT_FOTO)
-            .fotoContentType(DEFAULT_FOTO_CONTENT_TYPE);
+            .fotoContentType(DEFAULT_FOTO_CONTENT_TYPE)
+            .quantidade(DEFAULT_QUANTIDADE);
         return itemsAssinatura;
     }
 
@@ -96,7 +100,8 @@ class ItemsAssinaturaResourceIT {
             .nome(UPDATED_NOME)
             .valor(UPDATED_VALOR)
             .foto(UPDATED_FOTO)
-            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE)
+            .quantidade(UPDATED_QUANTIDADE);
         return itemsAssinatura;
     }
 
@@ -126,6 +131,7 @@ class ItemsAssinaturaResourceIT {
         assertThat(testItemsAssinatura.getValor()).isEqualByComparingTo(DEFAULT_VALOR);
         assertThat(testItemsAssinatura.getFoto()).isEqualTo(DEFAULT_FOTO);
         assertThat(testItemsAssinatura.getFotoContentType()).isEqualTo(DEFAULT_FOTO_CONTENT_TYPE);
+        assertThat(testItemsAssinatura.getQuantidade()).isEqualTo(DEFAULT_QUANTIDADE);
     }
 
     @Test
@@ -225,7 +231,8 @@ class ItemsAssinaturaResourceIT {
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
             .andExpect(jsonPath("$.[*].valor").value(hasItem(sameNumber(DEFAULT_VALOR))))
             .andExpect(jsonPath("$.[*].fotoContentType").value(hasItem(DEFAULT_FOTO_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].foto").value(hasItem(Base64Utils.encodeToString(DEFAULT_FOTO))));
+            .andExpect(jsonPath("$.[*].foto").value(hasItem(Base64Utils.encodeToString(DEFAULT_FOTO))))
+            .andExpect(jsonPath("$.[*].quantidade").value(hasItem(DEFAULT_QUANTIDADE)));
     }
 
     @Test
@@ -244,7 +251,8 @@ class ItemsAssinaturaResourceIT {
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME))
             .andExpect(jsonPath("$.valor").value(sameNumber(DEFAULT_VALOR)))
             .andExpect(jsonPath("$.fotoContentType").value(DEFAULT_FOTO_CONTENT_TYPE))
-            .andExpect(jsonPath("$.foto").value(Base64Utils.encodeToString(DEFAULT_FOTO)));
+            .andExpect(jsonPath("$.foto").value(Base64Utils.encodeToString(DEFAULT_FOTO)))
+            .andExpect(jsonPath("$.quantidade").value(DEFAULT_QUANTIDADE));
     }
 
     @Test
@@ -271,7 +279,8 @@ class ItemsAssinaturaResourceIT {
             .nome(UPDATED_NOME)
             .valor(UPDATED_VALOR)
             .foto(UPDATED_FOTO)
-            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE)
+            .quantidade(UPDATED_QUANTIDADE);
         ItemsAssinaturaDTO itemsAssinaturaDTO = itemsAssinaturaMapper.toDto(updatedItemsAssinatura);
 
         restItemsAssinaturaMockMvc
@@ -291,6 +300,7 @@ class ItemsAssinaturaResourceIT {
         assertThat(testItemsAssinatura.getValor()).isEqualByComparingTo(UPDATED_VALOR);
         assertThat(testItemsAssinatura.getFoto()).isEqualTo(UPDATED_FOTO);
         assertThat(testItemsAssinatura.getFotoContentType()).isEqualTo(UPDATED_FOTO_CONTENT_TYPE);
+        assertThat(testItemsAssinatura.getQuantidade()).isEqualTo(UPDATED_QUANTIDADE);
     }
 
     @Test
@@ -376,7 +386,8 @@ class ItemsAssinaturaResourceIT {
             .padariaId(UPDATED_PADARIA_ID)
             .valor(UPDATED_VALOR)
             .foto(UPDATED_FOTO)
-            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE)
+            .quantidade(UPDATED_QUANTIDADE);
 
         restItemsAssinaturaMockMvc
             .perform(
@@ -395,6 +406,7 @@ class ItemsAssinaturaResourceIT {
         assertThat(testItemsAssinatura.getValor()).isEqualByComparingTo(UPDATED_VALOR);
         assertThat(testItemsAssinatura.getFoto()).isEqualTo(UPDATED_FOTO);
         assertThat(testItemsAssinatura.getFotoContentType()).isEqualTo(UPDATED_FOTO_CONTENT_TYPE);
+        assertThat(testItemsAssinatura.getQuantidade()).isEqualTo(UPDATED_QUANTIDADE);
     }
 
     @Test
@@ -414,7 +426,8 @@ class ItemsAssinaturaResourceIT {
             .nome(UPDATED_NOME)
             .valor(UPDATED_VALOR)
             .foto(UPDATED_FOTO)
-            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE);
+            .fotoContentType(UPDATED_FOTO_CONTENT_TYPE)
+            .quantidade(UPDATED_QUANTIDADE);
 
         restItemsAssinaturaMockMvc
             .perform(
@@ -433,6 +446,7 @@ class ItemsAssinaturaResourceIT {
         assertThat(testItemsAssinatura.getValor()).isEqualByComparingTo(UPDATED_VALOR);
         assertThat(testItemsAssinatura.getFoto()).isEqualTo(UPDATED_FOTO);
         assertThat(testItemsAssinatura.getFotoContentType()).isEqualTo(UPDATED_FOTO_CONTENT_TYPE);
+        assertThat(testItemsAssinatura.getQuantidade()).isEqualTo(UPDATED_QUANTIDADE);
     }
 
     @Test

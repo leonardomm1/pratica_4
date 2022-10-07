@@ -60,6 +60,10 @@ export const ItemsAssinaturaDetail = () => {
               </div>
             ) : null}
           </dd>
+          <dt>
+            <span id="quantidade">Quantidade</span>
+          </dt>
+          <dd>{itemsAssinaturaEntity.quantidade}</dd>
           <dt>Assinatura</dt>
           <dd>{itemsAssinaturaEntity.assinatura ? itemsAssinaturaEntity.assinatura.id : ''}</dd>
         </dl>

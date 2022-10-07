@@ -115,6 +115,9 @@ export const ItemsAssinatura = () => {
                 <th className="hand" onClick={sort('foto')}>
                   Foto <FontAwesomeIcon icon="sort" />
                 </th>
+                <th className="hand" onClick={sort('quantidade')}>
+                  Quantidade <FontAwesomeIcon icon="sort" />
+                </th>
                 <th>
                   Assinatura <FontAwesomeIcon icon="sort" />
                 </th>
@@ -150,6 +153,7 @@ export const ItemsAssinatura = () => {
                       </div>
                     ) : null}
                   </td>
+                  <td>{itemsAssinatura.quantidade}</td>
                   <td>
                     {itemsAssinatura.assinatura ? (
                       <Link to={`/assinatura/${itemsAssinatura.assinatura.id}`}>{itemsAssinatura.assinatura.id}</Link>

@@ -32,7 +32,11 @@ entity Assinatura {
     quantidadeDias Integer required min(1),
     ativa Boolean required,
     pagamentoRecorrenciaId Long required min(1),
-    foto ImageBlob
+    foto ImageBlob,
+    quantidade Integer min(1),
+    horarioRecebimento ZonedDateTime required,
+    tipoAssinatura String required minlength(3),
+    diaDaSemana TextBlob required
 }
 
 entity ItemsAssinatura {
@@ -40,7 +44,8 @@ entity ItemsAssinatura {
     padariaId Long required min(1),
     nome String required minlength(3) maxlength(255),
     valor BigDecimal required min(1),
-    foto ImageBlob
+    foto ImageBlob,
+    quantidade Integer min(1)
 }
 
 relationship ManyToOne {

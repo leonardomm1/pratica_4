@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { IPadaria } from 'app/shared/model/padaria.model';
 import { IUser } from 'app/shared/model/user.model';
 
@@ -10,6 +11,10 @@ export interface IAssinatura {
   pagamentoRecorrenciaId?: number;
   fotoContentType?: string | null;
   foto?: string | null;
+  quantidade?: number | null;
+  horarioRecebimento?: string;
+  tipoAssinatura?: string;
+  diaDaSemana?: string;
   padaria?: IPadaria | null;
   user?: IUser | null;
 }

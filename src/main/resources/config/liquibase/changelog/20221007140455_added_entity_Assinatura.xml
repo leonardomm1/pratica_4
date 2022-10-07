@@ -35,6 +35,18 @@
             <column name="foto_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="quantidade" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="horario_recebimento" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="tipo_assinatura" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="dia_da_semana" type="${clobType}">
+                <constraints nullable="false" />
+            </column>
             <column name="padaria_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -43,6 +55,7 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
+        <dropDefaultValue tableName="assinatura" columnName="horario_recebimento" columnDataType="${datetimeType}"/>
     </changeSet>
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
@@ -69,6 +82,10 @@
             <column name="pagamento_recorrencia_id" type="numeric"/>
             <column name="foto" type="blob"/>
             <column name="foto_content_type" type="string"/>
+            <column name="quantidade" type="numeric"/>
+            <column name="horario_recebimento" type="date"/>
+            <column name="tipo_assinatura" type="string"/>
+            <column name="dia_da_semana" type="clob"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

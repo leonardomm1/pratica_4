@@ -32,6 +32,10 @@ public class ItemsAssinaturaDTO implements Serializable {
     private byte[] foto;
 
     private String fotoContentType;
+
+    @Min(value = 1)
+    private Integer quantidade;
+
     private AssinaturaDTO assinatura;
 
     public Long getId() {
@@ -82,6 +86,14 @@ public class ItemsAssinaturaDTO implements Serializable {
         this.fotoContentType = fotoContentType;
     }
 
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
     public AssinaturaDTO getAssinatura() {
         return assinatura;
     }
@@ -120,6 +132,7 @@ public class ItemsAssinaturaDTO implements Serializable {
             ", nome='" + getNome() + "'" +
             ", valor=" + getValor() +
             ", foto='" + getFoto() + "'" +
+            ", quantidade=" + getQuantidade() +
             ", assinatura=" + getAssinatura() +
             "}";
     }
