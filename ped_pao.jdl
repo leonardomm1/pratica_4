@@ -27,7 +27,6 @@ entity Padaria {
 
 entity Assinatura {
 	id Long required unique min(1),
-    padariaId Long required min(1),
     valor BigDecimal required,
     nome String required minlength(3) maxlength(255),
     quantidadeDias Integer required min(1),
