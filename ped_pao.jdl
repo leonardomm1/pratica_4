@@ -1,0 +1,70 @@
+entity InformacoesAdicionais {
+	id Long required unique min(1),
+	telefone String required unique minlength(10) maxlength(15),
+    cpf String required unique minlength(11) maxlength(11),
+    cep String required minlength(8) maxlength(8),
+    rua String required minlength(3) maxlength(255),
+    bairro String required minlength(3) maxlength(255),
+    estado String required minlength(2) maxlength(2),
+    numero String required minlength(1) maxlength(255),
+    complemento String
+}
+
+entity Padaria {
+	id Long required unique min(1),
+    nome String required unique minlength(3) maxlength(255),
+    fantasia String required minlength(3) maxlength(255),
+    telefone String required unique minlength(10) maxlength(15),
+    cnpj String required unique minlength(14) maxlength(14),
+    cep String required minlength(8) maxlength(8),
+    rua String required minlength(3) maxlength(255),
+    bairro String required minlength(3) maxlength(255),
+    estado String required minlength(2) maxlength(2),
+    numero String required minlength(1) maxlength(255),
+    complemento String,
+    contato String
+}
+
+entity Assinatura {
+	id Long required unique min(1),
+    padariaId Long required min(1),
+    valor BigDecimal required,
+    nome String required minlength(3) maxlength(255),
+    quantidadeDias Integer required min(1),
+    ativa Boolean required,
+    pagamentoRecorrenciaId Long required min(1),
+    foto ImageBlob
+}
+
+entity ItemsAssinatura {
+	id Long required unique min(1),
+    padariaId Long required min(1),
+    assinaturaId Long required min(1),
+    nome String required minlength(3) maxlength(255),
+    valor BigDecimal required min(1),
+    foto ImageBlob
+}
+
+relationship ManyToOne {
+	InformacoesAdicionais{user} to User
+}
+
+relationship ManyToOne {
+	Assinatura{padaria} to Padaria
+}
+
+relationship ManyToOne {
+	Assinatura{user} to User
+}
+
+relationship ManyToOne {
+	ItemsAssinatura{assinatura} to Assinatura
+}
+
+relationship ManyToOne {
+    Padaria{user} to User
+}
+
+dto * with mapstruct
+paginate * with pagination
+service * with serviceImpl
