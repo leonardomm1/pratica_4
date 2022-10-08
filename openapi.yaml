@@ -1,19 +1,22 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
-    title: Pratica 4 API
-    description: Pratica 4 API documentation
-    termsOfService: ""
+    title: PedPao API
+    description: API disponibilizada pela PedPao para realizar o cadastrado de assinatura, usuario e padarias.
+    termsOfService: 'https://www.pedpao.com.br/terms'
     contact:
-        name: ""
-        url: ""
-        email: "pedpao@pedpao.com"
+        name: 'Ped Pao LTDA'
+        url: 'https://www.pedpao.com.br'
+        email: 'pedpao@pedpao.com'
     license:
-        name: unlicensed
-        url: ""
-    version: 0.0.1
+        name: PedPaoLTDA
+        url: 'https://www.pedpao.com.br/license'
+    version: 1.0.0
 servers:
-    - url: http://localhost:8080
-      description: Generated server url
+    - url: 'http://localhost:8080'
+      description: Server
+externalDocs:
+    description: Mais informações
+    url: https://www.pedpao.com.br
 paths:
     /api/padarias/{id}:
         get:
