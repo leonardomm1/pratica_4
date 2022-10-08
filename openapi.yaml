@@ -2,11 +2,11 @@ openapi: 3.0.3
 info:
     title: PedPao API
     description: >-
-      API disponibilizada pela PedPao para gerenciar o cadastrado de assinaturas, de usuarios e de parceiros de negócio.
-    
-      - Onde os clientes vão utilizar o nosso serviço? Para fazer integrações facilitando as listagem de produtos, assinaturas e parceiros.
-    
-      - Como os clientes vão interagir com o nosso produto? Basta acessar a plataforma(Web) e assinar a entrega de produtos que sejam interessantes para o seu café da manhã ou para seu negócio.
+        API disponibilizada pela PedPao para gerenciar o cadastrado de assinaturas, de usuarios e de parceiros de negócio.
+
+        - Onde os clientes vão utilizar o nosso serviço? Para fazer integrações facilitando as listagem de produtos, assinaturas e parceiros.
+
+        - Como os clientes vão interagir com o nosso produto? Basta acessar a plataforma(Web) e assinar a entrega de produtos que sejam interessantes para o seu café da manhã ou para seu negócio.
     termsOfService: 'https://www.pedpao.com.br/terms'
     contact:
         name: 'Ped Pao LTDA'
@@ -1621,7 +1621,7 @@ paths:
                   in: path
                   required: true
                   schema:
-                      pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
+                      pattern: '/[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-\.]/'
                       type: string
             responses:
                 "200":
@@ -1661,7 +1661,7 @@ paths:
                   in: path
                   required: true
                   schema:
-                      pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
+                      pattern: '/[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-\.]/'
                       type: string
             responses:
                 "200":
@@ -1988,7 +1988,7 @@ components:
                     description: Login do usuário
                     maxLength: 50
                     minLength: 1
-                    pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
+                    pattern: '/[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-\.]/'
                     type: string
                 firstName:
                     description: Primeiro nome
@@ -2052,7 +2052,7 @@ components:
                     description: login do usuário
                     maxLength: 50
                     minLength: 1
-                    pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
+                    pattern: '/[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-\.]/'
                     type: string
                 firstName:
                     description: Primeiro nome do usuário
@@ -2148,7 +2148,7 @@ components:
                     description: Login do usuário
                     maxLength: 50
                     minLength: 1
-                    pattern: '^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$'
+                    pattern: '/[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-\.]/'
                     type: string
                 firstName:
                     description: Primeiro nome do usuário

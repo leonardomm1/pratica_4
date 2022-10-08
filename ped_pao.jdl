@@ -1,5 +1,5 @@
 entity InformacoesAdicionais {
-	id Long required unique min(1),
+	id Long,
 	telefone String required unique minlength(10) maxlength(15),
     cpf String required unique minlength(11) maxlength(11),
     cep String required minlength(8) maxlength(8),
@@ -11,7 +11,7 @@ entity InformacoesAdicionais {
 }
 
 entity Padaria {
-	id Long required unique min(1),
+	id Long,
     nome String required unique minlength(3) maxlength(255),
     fantasia String required minlength(3) maxlength(255),
     telefone String required unique minlength(10) maxlength(15),
@@ -26,7 +26,7 @@ entity Padaria {
 }
 
 entity Assinatura {
-	id Long required unique min(1),
+	id Long,
     valor BigDecimal required,
     nome String required minlength(3) maxlength(255),
     quantidadeDias Integer required min(1),
