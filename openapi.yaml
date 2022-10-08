@@ -2487,7 +2487,7 @@ components:
                     schema:
                         $ref: '#/components/schemas/Response500'
         "501":
-            description:
+            description: Not Implemented
             content:
                 application/json:
                     schema:
