@@ -1,0 +1,158 @@
+{% extends 'base-presentation.html' %}
+
+{% block title %} | Pão quentinho todos os dias {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block content %}
+
+  <header class="header-2">
+    <div id="image_background" class="page-header section-height-75 relative" style="background-image: url('/static/assets/img/curved-images/top-view-bread-opaque.jpg'); opacity: 1">
+      <div class="container">
+        <div class="row">
+
+
+          <section class="mt-7">
+            <div class="container py-4">
+              <div class="row">
+
+                <div class="col-md-12">
+                  <div class="row mt-4">
+
+                    <div class="col-md-4" style="width: 390px; height: 226px;">
+                      <a href="/home/assinatura_paes">
+                        <div class="card move-on-hover">
+                          <img class="w-100" src="/static/assets/img/pao_do_cambui.png" alt="" style="object-fit: cover; width: 390px; height: 226px;">
+                        </div>
+                        <div class="mt-2 ms-2">
+                          <h6 class="mb-0">Pão do Cambuí</h6>
+                        </div>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4 mt-md-0 mt-5" style="width: 390px; height: 226px;">
+                      <a href="/home/assinatura_paes">
+                        <div class="card move-on-hover">
+                          <img class="w-100" src="/static/assets/img/padaria_romana.jpeg" alt="" style="object-fit: cover; width: 390px; height: 226px;">
+                        </div>
+                        <div class="mt-2 ms-2">
+                          <h6 class="mb-0">Padaria Romana</h6>
+                        </div>
+                      </a>
+                    </div>
+
+                    <div class="col-md-4" style="width: 390px; height: 226px;">
+                      <a href="/home/assinatura_paes">
+                        <div class="card move-on-hover">
+                          <img class="w-100" src="/static/assets/img/pao_da_vida.jpeg" alt="" style="object-fit: cover; width: 390px; height: 226px;">
+                        </div>
+                        <div class="mt-2 ms-2">
+                          <h6 class="mb-0">Pão da Vida</h6>
+                        </div>
+                      </a>
+                    </div>
+
+                    <!--
+                    <div class="col-md-6 mt-md-0 mt-6" style="width: 590px; height: 300px;">
+                      <a href="/home/promocoes">
+                        <div class="card move-on-hover">
+                          <img class="w-100" src="/static/assets/img/on-sale-01.png" alt="" style="object-fit: cover; width: 590px; height: 300px;">
+                        </div>
+                        <div class="mt-2 ms-2">
+                          <h6 class="mb-0">Promoções do dia</h6>
+                        </div>
+                      </a>
+                    </div>
+
+                    <div class="col-md-6 mt-md-0 mt-6" style="width: 590px; height: 300px;">
+                      <a href="/home/destaques">
+                        <div class="card move-on-hover">
+                          <img class="w-100" src="/static/assets/img/highlights-01.jpg" alt="" style="object-fit: cover; width: 590px; height: 300px;">
+                        </div>
+                        <div class="mt-2 ms-2">
+                          <h6 class="mb-0">Destaques</h6>
+                        </div>
+                      </a>
+                    </div>
+                    -->
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <div style="margin-top: 50px; margin-bottom: 50px;"></div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+
+
+
+  
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/js/plugins/countup.min.js"></script>
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+  <script src="/static/assets/js/plugins/rellax.min.js"></script>
+  <script src="/static/assets/js/plugins/tilt.min.js"></script>
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+
+  <script src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script>
+
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>-->
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>
+
+  <script>
+
+    $(document).ready(function() {
+      //$('#image_background').animate({ opacity: 0.3 }, 2000);
+      //$('#image_background').attr('style', "background-image: url('/static/assets/img/curved-images/top-view-bread.jpg'); opacity: 0.3;");
+    }) 
+    
+    /*$('#font-classic').click(function() {
+        $('body').fadeOut('normal', function(){
+            $('body').fadeIn();
+        }});
+    });*/
+
+  </script>
+
+{% endblock javascripts %}

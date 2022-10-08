@@ -6,6 +6,7 @@ from flask_login import (
     login_user,
     logout_user
 )
+import json
 
 from app import db, login_manager
 from app.base import blueprint
@@ -15,7 +16,10 @@ from app.base.models import User
 
 @blueprint.route('/')
 def route_default():
-    return redirect(url_for('base_blueprint.login'))
+    #return redirect(url_for('base_blueprint.login'))
+    if current_user.is_authenticated is False:
+        return render_template('index.html')
+    return redirect(url_for('home_blueprint.index'))
 
 
 @blueprint.route('/<template>')
@@ -47,7 +51,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user and checkpw(password.encode('utf8'), user.password):
             login_user(user)
-            return redirect(url_for('base_blueprint.route_default'))
+            return redirect(url_for('home_blueprint.index'))
         return render_template('errors/page_403.html')
     if not current_user.is_authenticated:
         return render_template(
@@ -58,12 +62,34 @@ def login():
     return redirect(url_for('home_blueprint.index'))
 
 
+@blueprint.route('/cadastro', methods=['GET', 'POST'])
+def cadastro():
+    create_account_form = CreateAccountForm(request.form)
+    if not current_user.is_authenticated:
+        return render_template(
+            'login/cadastro.html',
+            create_account_form=create_account_form
+        )
+    return redirect(url_for('home_blueprint.index'))
+
+
 @blueprint.route('/create_user', methods=['POST'])
 def create_user():
     user = User(**request.form)
+
+    # Check the mobile number / username
+    result = User.query.filter_by(username=user.username).first()
+    if result is not None:
+        return jsonify('mobile_exists')
+    
+    # Check the e-mail
+    result = User.query.filter_by(email=user.email).first()
+    if result is not None:
+        return jsonify('email_exists')
+
     db.session.add(user)
     db.session.commit()
-    return jsonify('success')
+    return jsonify('register_success')
 
 
 @blueprint.route('/logout')

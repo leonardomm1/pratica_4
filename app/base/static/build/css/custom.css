@@ -416,7 +416,7 @@ body .container.body .right_col {
     color: #9CC2CB
 }
 .red {
-    color: #E74C3C
+    color: #FF0000
 }
 .dark {
     color: #34495E
@@ -434,7 +434,7 @@ body .container.body .right_col {
     border-color: #9CC2CB !important
 }
 .border-red {
-    border-color: #E74C3C !important
+    border-color: #FF0000 !important
 }
 .border-dark {
     border-color: #34495E !important
@@ -450,8 +450,8 @@ body .container.body .right_col {
     color: #fff
 }
 .bg-red {
-    background: #E74C3C !important;
-    border: 1px solid #E74C3C !important;
+    background: #FF0000 !important;
+    border: 1px solid #FF0000 !important;
     color: #fff
 }
 .bg-blue {
@@ -2220,7 +2220,7 @@ legend {
     padding: 5px
 }
 .invalid-form-error-message.filled {
-    border-left: 2px solid #E74C3C
+    border-left: 2px solid #FF0000;
 }
 p.parsley-success {
     color: #468847;
@@ -2228,20 +2228,20 @@ p.parsley-success {
     border: 1px solid #D6E9C6
 }
 p.parsley-error {
-    color: #B94A48;
+    color: #FF0000;
     background-color: #F2DEDE;
     border: 1px solid #EED3D7
 }
 ul.parsley-errors-list {
     list-style: none;
-    color: #E74C3C;
+    color: #FF0000;
     padding-left: 0
 }
 input.parsley-error,
 textarea.parsley-error,
 select.parsley-error {
     background: #FAEDEC;
-    border: 1px solid #E85445
+    border: 1px solid #FF0000
 }
 .btn-group .parsley-errors-list {
     display: none
@@ -2249,8 +2249,8 @@ select.parsley-error {
 .bad input,
 .bad select,
 .bad textarea {
-    border: 1px solid #CE5454;
-    box-shadow: 0 0 4px -2px #CE5454;
+    border: 1px solid #FF0000;
+    box-shadow: 0 0 4px -2px #FF0000;
     position: relative;
     left: 0;
     -moz-animation: .7s 1 shake linear;
@@ -2266,7 +2266,7 @@ select.parsley-error {
     padding: 3px 10px;
     color: #FFF;
     border-radius: 3px 4px 4px 3px;
-    background-color: #CE5454;
+    background-color: #FF0000;
     max-width: 170px;
     white-space: pre;
     position: relative;
@@ -2280,7 +2280,7 @@ select.parsley-error {
     display: block;
     height: 0;
     width: 0;
-    border-color: transparent #CE5454 transparent transparent;
+    border-color: transparent #FF0000 transparent transparent;
     border-style: solid;
     border-width: 11px 7px;
     position: absolute;
@@ -4085,8 +4085,8 @@ ul.verticle_bars li {
 .alert-danger,
 .alert-error {
     color: #E9EDEF;
-    background-color: rgba(231, 76, 60, 0.88);
-    border-color: rgba(231, 76, 60, 0.88)
+    background-color: #FF0000;
+    border-color: #FF0000;
 }
 .ui-pnotify.dark .ui-pnotify-container {
     color: #E9EDEF;

@@ -1,0 +1,177 @@
+{% extends 'base-presentation.html' %}
+
+{% block title %} | Pão quentinho todos os dias {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link href="{{ url_for('static', filename='vendors/alertifyjs/css/alertify.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/alertifyjs/css/custom.alertify.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block content %}
+
+  <header class="header-2">
+    <div class="page-header section-height-75 relative" style="background-image: url('/static/assets/img/curved-images/top-view-bread.jpg'); opacity: 0.85;">
+      <div class="container">
+        <div class="row">
+
+
+          <section class="mt-7">
+            <div class="container py-4">
+              <div class="row">
+                <div class="col-lg-7 mx-auto d-flex justify-content-center flex-column">
+                  <h3 class="text-center text-white">Complete o seu cadastro</h3>
+
+                  <form role="form" id="contact-form" method="post" autocomplete="off" action="/home/completar_cadastro_usuario">
+                    <div class="card-body">
+                      <div class="row">
+
+                        <div class="col-md-3">
+                          <label class="text-white" style="font-size: 20px;">Nome</label>
+                          <div class="input-group mb-4">
+                            <input id="name" name="name" class="form-control" placeholder="" aria-label="First Name..." type="text" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 ps-2">
+                          <label class="text-white" style="font-size: 20px;">Sobrenome</label>
+                          <div class="input-group">
+                            <input id="surname" name="surname" type="text" class="form-control" placeholder="" aria-label="Last Name..." required>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-md-3">
+                          <label class="text-white" style="font-size: 20px;">CEP</label>
+                          <div class="input-group mb-4">
+                            <input id="cep" name="cep" type="text" class="form-control" placeholder="" onchange="check_cep()" required>
+                          </div>
+                        </div>
+  
+                        <div class="col-md-5 ps-2">
+                          <label class="text-white" style="font-size: 20px;">Endereço</label>
+                          <div class="input-group mb-4">
+                            <input id="address" name="address" type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+
+                        <div class="col-md-2">
+                          <label class="text-white" style="font-size: 20px;">Número</label>
+                          <div class="input-group">
+                            <input id="number" name="number" type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-md-3 mb-4">
+                          <label class="text-white" style="font-size: 20px;">Complemento</label>
+                          <div class="input-group mb-4">
+                            <input id="complement" name="complement" type="text" class="form-control" placeholder="" >
+                          </div>
+                        </div>
+
+                        <div class="col-md-5 mb-4 ps-2">
+                          <label class="text-white" style="font-size: 20px;">Cidade</label>
+                          <div class="input-group mb-4">
+                            <input id="city" name="city" type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+  
+                        <div class="col-md-2 mb-4 ps-2">
+                          <label class="text-white" style="font-size: 20px;">Estado</label>
+                          <div class="input-group mb-4">
+                            <input id="state" name="state" type="text" class="form-control" placeholder="" required>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      
+
+                      
+
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" unchecked="" required>
+                            <label class="form-check-label text-white" for="flexSwitchCheckDefault">Aceito os <a href="javascript:;" class="text-white"><u>Termos e condições</u></a>.</label>
+                          </div>
+                          <div class="form-check form-switch mb-4">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked="">
+                            <label class="form-check-label text-white" for="flexSwitchCheckDefault">Aceito receber ofertas</label>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <button type="submit" class="btn btn-white btn-outline-dark w-100">Salvar</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/js/plugins/countup.min.js"></script>
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+  <script src="/static/assets/js/plugins/rellax.min.js"></script>
+  <script src="/static/assets/js/plugins/tilt.min.js"></script>
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+  
+  <script src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendors/alertifyjs/alertify.min.js') }}"></script>
+  
+  <script src="/static/build/js/home.js"></script>
+
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>-->
+
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>
+
+{% endblock javascripts %}

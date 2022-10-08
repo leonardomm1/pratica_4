@@ -870,10 +870,10 @@
   background: rgba(91, 189, 114, 0.95);
 }
 .alertify-notifier .ajs-message.ajs-error {
-  background: rgba(217, 92, 92, 0.95);
+  background: #ff0000;
 }
 .alertify-notifier .ajs-message.ajs-warning {
-  background: rgba(252, 248, 215, 0.95);
+  background: rgba(255, 204, 0, 0.95);
 }
 .alertify-notifier .ajs-message .ajs-close {
   position: absolute;

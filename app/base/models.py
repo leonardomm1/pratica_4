@@ -1,18 +1,30 @@
 from bcrypt import gensalt, hashpw
 from flask_login import UserMixin
-from sqlalchemy import LargeBinary, Column, Integer, String
+from sqlalchemy import LargeBinary, Column, Integer, String, Boolean
 
 from app import db, login_manager
 
 
 class User(db.Model, UserMixin):
 
-    __tablename__ = 'User'
+    __tablename__ = 'Users'
 
     id = Column(Integer, primary_key=True)
     username = Column(String, unique=True)
     email = Column(String, unique=True)
     password = Column(LargeBinary)
+    name = Column(String)
+    surname = Column(String)
+    cep = Column(String)
+    address = Column(String)
+    number = Column(String)
+    complement = Column(String)
+    neighborhood = Column(String)
+    city = Column(String)
+    state = Column(String)
+    country = Column(String)
+    email_confirmed = Column(Boolean)
+    mobile_confirmed = Column(Boolean)
 
     def __init__(self, **kwargs):
         for property, value in kwargs.items():

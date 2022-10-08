@@ -1,0 +1,250 @@
+{% extends 'base-presentation.html' %}
+
+{% block title %} | Pão quentinho todos os dias {% endblock title %}
+
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<!-- Animate.css -->
+<link href="{{ url_for('static', filename='vendors/animate.css/animate.min.css') }}" rel="stylesheet">
+<!-- Alertify -->
+<link href="{{ url_for('static', filename='vendors/alertifyjs/css/alertify.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/alertifyjs/css/custom.alertify.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block content %}
+
+  <header class="header-2">
+    <div class="page-header section-height-75 relative" style="background-image: url('/static/assets/img/curved-images/top-view-bread.jpg'); opacity: 0.85;">
+      <div class="container">
+        <div class="row">
+
+          <div class="container" style="margin-top: 100px;">
+            <div class="row align-items-center">
+              <div class="col-lg-6 ms-auto">
+                <div class="row justify-content-left">
+
+                </div>
+              </div>
+
+              <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
+                <div class="card card-background card-background-mask-primary tilt" data-tilt="" style="will-change: transform; transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);">
+                  <div class="full-background" style="background-image: url('/static/images/bread_background_small.jpg')"></div>
+                  <div class="card-body pt-5 text-center">
+                    
+                    <div id="register" class="animate form registration_form">
+                      <section class="login_content">
+                        <form data-parsley-validate id="create-user-form" method="post">
+                          <h2 class="text-black up mb-0">Cadastre-se</h2>
+                          <br>
+                          {% for field in create_account_form if field.widget.input_type != 'hidden'  %}
+                            <div>
+                              {{ field(class="form-control required", placeholder=field.label.text) }}
+                            </div>
+                            <br>
+                          {% endfor %}
+                          <div>
+                            <button type="button" class="btn btn-outline-dark mt-1 up btn-round" name="register" onclick="signup();">Cadastrar</button>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div class="separator">
+                            <p class="font-weight-bolder mt-1" style="color: #252f40;">Já tem cadastro?
+                              <a href="/login" class="font-weight-bolder mt-1" style="color: #6d3200;"> Entrar </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br/>
+                            <div>
+                            </div>
+                          </div>
+                        </form>
+                      </section>
+                    </div>
+                    
+                    <br>
+                    <br>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="login_wrapper" style="display: none;">
+            <div class="animate form login_form">
+              <section class="login_content">
+                <form data-parsley-validate method="post">
+                  <h1>Login Form</h1>
+                  {% for field in login_form if field.widget.input_type != 'hidden'  %}
+                    <div>
+                      {{ field(class="form-control required", placeholder=field.label.text) }}
+                    </div>
+                  {% endfor %}
+                  <div>
+                  <button id="login-button" type="submit" class="btn btn-default submit" name="login">Log in</button>
+                  </div>
+                  <div class="clearfix"></div>
+                  <div class="separator">
+                    <p class="change_link">New to site?
+                      <a href="#signup" class="to_register"> Create Account </a>
+                    </p>
+                    <div class="clearfix"></div>
+                    <br/>
+                    <div>
+                    </div>
+                  </div>
+                </form>
+              </section>
+            </div>
+          
+
+          <!--
+          <div>
+            <a class="hiddenanchor" id="signup"></a>
+            <a class="hiddenanchor" id="signin"></a>
+            <div class="login_wrapper">
+              <div class="animate form login_form">
+                <section class="login_content">
+                  <form data-parsley-validate method="post">
+                    <h1>Login Form</h1>
+                    {% for field in login_form if field.widget.input_type != 'hidden'  %}
+                      <div>
+                        {{ field(class="form-control required", placeholder=field.label.text) }}
+                      </div>
+                    {% endfor %}
+                    <div>
+                    <button type="submit" class="btn btn-default submit" name="login">Log in</button>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="separator">
+                      <p class="change_link">New to site?
+                        <a href="#signup" class="to_register"> Create Account </a>
+                      </p>
+                      <div class="clearfix"></div>
+                      <br/>
+                      <div>
+                        <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                        <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                      </div>
+                    </div>
+                  </form>
+                </section>
+              </div>
+              <div id="register" class="animate form registration_form">
+                <section class="login_content">
+                  <form data-parsley-validate id="create-user-form" method="post">
+                    <h1>Create Account</h1>
+                    {% for field in create_account_form if field.widget.input_type != 'hidden'  %}
+                      <div>
+                        {{ field(class="form-control required", placeholder=field.label.text) }}
+                      </div>
+                    {% endfor %}
+                    <div>
+                      <button type="button" class="btn btn-default" onclick="signup()">Sign up</button>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="separator">
+                      <p class="change_link">Already a member ?
+                        <a href="#signin" id="login-button" class="to_register"> Log in </a>
+                      </p>
+                      <div class="clearfix"></div>
+                      <br/>
+                      <div>
+                        <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                        <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                      </div>
+                    </div>
+                  </form>
+                </section>
+              </div>
+            </div>
+          </div>
+          -->
+
+
+        </div>
+      </div>
+      
+      <div class="position-absolute w-100 z-index-1 bottom-0">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 40" preserveAspectRatio="none" shape-rendering="auto">
+          <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+          </defs>
+          <g class="moving-waves">
+            <use xlink:href="#gentle-wave" x="48" y="-1" fill="rgba(255,255,255,0.40" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.35)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.25)" />
+            <use xlink:href="#gentle-wave" x="48" y="8" fill="rgba(255,255,255,0.20)" />
+            <use xlink:href="#gentle-wave" x="48" y="13" fill="rgba(255,255,255,0.15)" />
+            <use xlink:href="#gentle-wave" x="48" y="16" fill="rgba(255,255,255,0.95" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+<!-- jQuery -->
+<script src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script>
+<!-- Alertify -->
+<script src="{{ url_for('static', filename='vendors/alertifyjs/alertify.min.js') }}"></script>
+<!-- Parsley -->
+<script src="{{ url_for('static', filename='vendors/parsleyjs/dist/parsley.min.js') }}"></script>
+<!-- Login -->
+<script src="{{ url_for('static', filename='build/js/login.js') }}"></script>
+
+<script>
+  //alertify.alert("hey");
+  //<div onload="doMyAlerts('{{message}}');"></div>
+  //function confirmation() {
+  //  alertify.alert("here is a message");
+  //};
+</script>
+
+  <script src="/static/assets/js/plugins/countup.min.js"></script>
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+  <script src="/static/assets/js/plugins/rellax.min.js"></script>
+  <script src="/static/assets/js/plugins/tilt.min.js"></script>
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>-->
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>
+
+{% endblock javascripts %}
+
+
+
+

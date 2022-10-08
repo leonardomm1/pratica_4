@@ -1,0 +1,402 @@
+{% extends 'base-presentation.html' %}
+
+{% block title %} | Pão quentinho todos os dias {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<!-- Animate.css -->
+<link href="{{ url_for('static', filename='vendors/animate.css/animate.min.css') }}" rel="stylesheet">
+<!-- Alertify -->
+<link href="{{ url_for('static', filename='vendors/alertifyjs/css/alertify.min.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/alertifyjs/css/custom.alertify.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='vendors/alerty/dist/css/alerty.css') }}" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block body_class %} index-page {% endblock body_class %}
+
+{% block content %}
+
+  <header class="header-2">
+    <div id="image_background" class="page-header section-height-75 relative" style="background-image: url('/static/assets/img/curved-images/top-view-bread-opaque.jpg'); opacity: 1">
+      <div class="container">
+        <div class="row">
+
+
+          <section class="mt-7">
+            <div class="container py-4">
+              <div class="row">
+
+                
+                
+                <div class="mt-3 ms-0">
+                  <h3 class="text-center text-dark mb-5">Como você quer a sua assinatura de pães?</h3>
+                  <h6 class="mb-2">Quantidade de pães</h6>
+                </div>
+
+                <div class="">
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -5px; margin-top: -7px; font-weight: bold;">1</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -5px; margin-top: -7px; font-weight: bold;">2</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -5px; margin-top: -7px; font-weight: bold;">3</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -5px; margin-top: -7px; font-weight: bold;">4</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -5px; margin-top: -7px; font-weight: bold;">5</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -5px; margin-top: -7px; font-weight: bold;">6</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -5px; margin-top: -7px; font-weight: bold;">7</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -5px; margin-top: -7px; font-weight: bold;">8</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -12px; margin-top: -7px; font-weight: bold;">10</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -12px; margin-top: -7px; font-weight: bold;">15</p></button>
+                  <button class="btn btn-warning" type="button" style="width: 40px; height: 40px;"><p style="font-size: 20px; margin-left: -12px; margin-top: -7px; font-weight: bold;">20</p></button>
+                </div>
+
+
+                <div class="mt-3 ms-0">
+                  <h6 class="mb-2">Como você quer seus pães?</h6>
+                </div>
+
+                <div class="row text-center">
+                  <div class="col-3 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-a" id="flexRadioDefault1-a">
+                      <label class="form-check-label" for="flexRadioDefault1-a">
+                        Quentinhos (premium)
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-a" id="flexRadioDefault2-a">
+                      <label class="form-check-label" for="flexRadioDefault2-a">
+                        padrão
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="mt-3 ms-0">
+                  <h6 class="mb-2">Onde você quer receber o seu pedido?</h6>
+                </div>
+
+                <div class="row text-center">
+                  <div class="col-3 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-b" id="flexRadioDefault1-b">
+                      <label class="form-check-label" for="flexRadioDefault1-b">
+                        No meu endereço padrão
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-b" id="flexRadioDefault2-b">
+                      <label class="form-check-label" for="flexRadioDefault2-b">
+                        Outro endereço (especifique)
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="mt-3 ms-0">
+                  <h6 class="mb-2">Qual o horário aproximado que você desejar receber o pedido todos os dias?</h6>
+                </div>
+
+                <div class="col-md-3 text-center">
+                  <div class="col-12 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault1-c">
+                      <label class="form-check-label" for="flexRadioDefault1-c">
+                        6h da manhã
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault2-c">
+                      <label class="form-check-label" for="flexRadioDefault2-c">
+                        7h da manhã
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault3-c">
+                      <label class="form-check-label" for="flexRadioDefault3-c">
+                        8h da manhã
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault4-c">
+                      <label class="form-check-label" for="flexRadioDefault4-c">
+                        9h da manhã
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 text-center">
+                  <div class="col-12 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault5-c">
+                      <label class="form-check-label" for="flexRadioDefault5-c">
+                        10h da manhã
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault6-c">
+                      <label class="form-check-label" for="flexRadioDefault6-c">
+                        11h da manhã
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault7-c">
+                      <label class="form-check-label" for="flexRadioDefault7-c">
+                        12h da tarde
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault8-c">
+                      <label class="form-check-label" for="flexRadioDefault8-c">
+                        13h da tarde
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 text-center">
+                  <div class="col-12 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault9-c">
+                      <label class="form-check-label" for="flexRadioDefault9-c">
+                        14h da tarde
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault10-c">
+                      <label class="form-check-label" for="flexRadioDefault10-c">
+                        15h da tarde
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault11-c">
+                      <label class="form-check-label" for="flexRadioDefault11-c">
+                        16h da tarde
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault12-c">
+                      <label class="form-check-label" for="flexRadioDefault12-c">
+                        17h da tarde
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 text-center">
+                  <div class="col-12 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault13-c">
+                      <label class="form-check-label" for="flexRadioDefault13-c">
+                        18h da noite
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault14-c">
+                      <label class="form-check-label" for="flexRadioDefault14-c">
+                        19h da noite
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault15-c">
+                      <label class="form-check-label" for="flexRadioDefault15-c">
+                        20h da noite
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault-c" id="flexRadioDefault16-c">
+                      <label class="form-check-label" for="flexRadioDefault16-c">
+                        21h da noite
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="mt-3 ms-0">
+                  <h6 class="mb-2">Em quais dias da semana você deseja receber o pedido?</h6>
+                </div>
+
+                <div class="col-md-3 text-center">
+                  <div class="col-3 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Segunda
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Terça
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 text-center">
+                  <div class="col-3 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Quarta
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Quinta
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 text-center">
+                  <div class="col-3 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Sexta
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                      <label class="form-check-label" for="flexCheckChecked">
+                        Sábado
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 text-center">
+                  <div class="col-3 text-start">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Domingo
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <div class="col-md-4 p-3 info-horizontal">
+            <div class="icon icon-shape rounded-circle bg-gradient-primary shadow text-center">
+              <i class="fa fa-usd opacity-10" aria-hidden="true"></i>
+            </div>
+            <div class="description ps-3">
+              <h4 class="mb-0 ms-0 text-dark">Total da sua assinatura</h4>
+              <h6 class="mb-2 ms-0 text-dark">cobrado mensalmente a partir de hoje</h6>
+              <h2 class="mb-2 ms-0">R$ 149,90</h2>
+            </div>
+          </div>
+
+          <div class="col-md-4 mt-3 ms-0">
+            <button type="button" class="btn btn-primary w-auto bg-gradient-primary mt-4 ms-0"
+                onclick="confirmar_assinatura();">Assinar</button>
+          </div>
+
+          <div style="margin-top: 50px; margin-bottom: 50px;"></div>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+
+
+
+  
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/js/plugins/countup.min.js"></script>
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+  <script src="/static/assets/js/plugins/rellax.min.js"></script>
+  <script src="/static/assets/js/plugins/tilt.min.js"></script>
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+
+  <script src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script>
+  <!-- Alertify -->
+  <script src="{{ url_for('static', filename='vendors/alertifyjs/alertify.min.js') }}"></script>
+  <!-- Parsley -->
+  <script src="{{ url_for('static', filename='vendors/parsleyjs/dist/parsley.min.js') }}"></script>
+  <!-- Login -->
+  <script src="{{ url_for('static', filename='build/js/login.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='vendors/alerty/dist/js/alerty.js') }}"></script>
+
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>-->
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>
+
+  <script>
+
+    window.qty_paes = 0;
+
+    $(document).ready(function() {
+      //$('#image_background').animate({ opacity: 0.3 }, 2000);
+      //$('#image_background').attr('style', "background-image: url('/static/assets/img/curved-images/top-view-bread.jpg'); opacity: 0.3;");
+    })
+
+    $('.btn').on('click', function() {
+      $(this).addClass('selected');
+      $( this ).toggleClass( "active" );
+      var qty = $(this).text();
+      window.qty_paes = qty;
+    });
+
+    function confirmar_assinatura() {
+      // alertify.dialog('alert').set({transition:'pulse',message: 'Transition effect: pulse'}).show();
+
+      //alertify.prompt('Por favor confirme a sua assinatura', '', 
+      //  function(evt, value){ alertify.message('You entered: ' + value);}
+      //  ).set('labels', {ok:'Submit', cancel:'Cancel'});
+
+      alerty.confirm(
+        'Tem certeza que deseja continuar com a assinatura de pães por R$ 149,90 mensalmente?', 
+        {title: 'Confirme a sua assinatura', cancelLabel: 'Cancelar', okLabel: 'Confirmar'}, 
+        function(){
+          //alerty.toasts('this is ok callback', {place: 'top'})
+        },
+        function() {
+          //alerty.toasts('this is cancel callback')
+        }
+      );
+
+    };
+
+  </script>
+
+{% endblock javascripts %}

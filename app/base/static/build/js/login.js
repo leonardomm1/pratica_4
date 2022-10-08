@@ -14,13 +14,19 @@ function signup() { // eslint-disable-line no-unused-vars
       dataType: 'json',
       data: $('#create-user-form').serialize(),
       success: function(result) {
-        if (result == 'duplicate') {
-          const message = 'Cannot create new user: duplicate entry.';
-          alertify.notify(message, 'error', 5);
-        } else {
-          alertify.notify('New user created.', 'success', 5);
-          document.getElementById('login-button').click();
-        }
+        if (result == 'email_exists') {
+          const message = 'E-mail já cadastrado';
+          alertify.notify(message, 'error', 10);
+        } else if (result == 'mobile_exists') {
+          const message = 'Celular já cadastrado';
+          alertify.notify(message, 'error', 10);
+        } else if(result == "register_success") {
+          alertify.notify('Cadastro efetuado com sucesso', 'success', 10);
+          //document.getElementById('login-button').click();
+          setTimeout(function() {
+            window.location = "/login"
+        }, 5000);
+        };
       },
     });
   }
