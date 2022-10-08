@@ -2,14 +2,14 @@ openapi: 3.0.1
 info:
     title: Pratica 4 API
     description: Pratica 4 API documentation
-    termsOfService: ''
+    termsOfService: ""
     contact:
-        name: ''
-        url: ''
-        email: 'pedpao@pedpao.com'
+        name: ""
+        url: ""
+        email: "pedpao@pedpao.com"
     license:
         name: unlicensed
-        url: ''
+        url: ""
     version: 0.0.1
 servers:
     - url: http://localhost:8080
@@ -28,12 +28,34 @@ paths:
                       type: integer
                       format: int64
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/PadariaDTO'
+                                $ref: "#/components/schemas/PadariaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         put:
             tags:
                 - padaria-resource
@@ -49,15 +71,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/PadariaDTO'
+                            $ref: "#/components/schemas/PadariaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/PadariaDTO'
+                                $ref: "#/components/schemas/PadariaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         delete:
             tags:
                 - padaria-resource
@@ -70,8 +114,30 @@ paths:
                       type: integer
                       format: int64
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         patch:
             tags:
                 - padaria-resource
@@ -87,18 +153,40 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/PadariaDTO'
+                            $ref: "#/components/schemas/PadariaDTO"
                     application/merge-patch+json:
                         schema:
-                            $ref: '#/components/schemas/PadariaDTO'
+                            $ref: "#/components/schemas/PadariaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/PadariaDTO'
+                                $ref: "#/components/schemas/PadariaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/items-assinaturas/{id}:
         get:
             tags:
@@ -112,12 +200,34 @@ paths:
                       type: integer
                       format: int64
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                                $ref: "#/components/schemas/ItemsAssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         put:
             tags:
                 - items-assinatura-resource
@@ -133,15 +243,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                            $ref: "#/components/schemas/ItemsAssinaturaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                                $ref: "#/components/schemas/ItemsAssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         delete:
             tags:
                 - items-assinatura-resource
@@ -154,8 +286,30 @@ paths:
                       type: integer
                       format: int64
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         patch:
             tags:
                 - items-assinatura-resource
@@ -171,18 +325,40 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                            $ref: "#/components/schemas/ItemsAssinaturaDTO"
                     application/merge-patch+json:
                         schema:
-                            $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                            $ref: "#/components/schemas/ItemsAssinaturaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                                $ref: "#/components/schemas/ItemsAssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/informacoes-adicionais/{id}:
         get:
             tags:
@@ -196,12 +372,34 @@ paths:
                       type: integer
                       format: int64
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                                $ref: "#/components/schemas/InformacoesAdicionaisDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         put:
             tags:
                 - informacoes-adicionais-resource
@@ -217,15 +415,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                            $ref: "#/components/schemas/InformacoesAdicionaisDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                                $ref: "#/components/schemas/InformacoesAdicionaisDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         delete:
             tags:
                 - informacoes-adicionais-resource
@@ -238,8 +458,30 @@ paths:
                       type: integer
                       format: int64
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         patch:
             tags:
                 - informacoes-adicionais-resource
@@ -255,18 +497,40 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                            $ref: "#/components/schemas/InformacoesAdicionaisDTO"
                     application/merge-patch+json:
                         schema:
-                            $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                            $ref: "#/components/schemas/InformacoesAdicionaisDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                                $ref: "#/components/schemas/InformacoesAdicionaisDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/assinaturas/{id}:
         get:
             tags:
@@ -280,12 +544,34 @@ paths:
                       type: integer
                       format: int64
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/AssinaturaDTO'
+                                $ref: "#/components/schemas/AssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         put:
             tags:
                 - assinatura-resource
@@ -301,15 +587,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/AssinaturaDTO'
+                            $ref: "#/components/schemas/AssinaturaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/AssinaturaDTO'
+                                $ref: "#/components/schemas/AssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         delete:
             tags:
                 - assinatura-resource
@@ -322,8 +630,30 @@ paths:
                       type: integer
                       format: int64
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         patch:
             tags:
                 - assinatura-resource
@@ -339,18 +669,40 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/AssinaturaDTO'
+                            $ref: "#/components/schemas/AssinaturaDTO"
                     application/merge-patch+json:
                         schema:
-                            $ref: '#/components/schemas/AssinaturaDTO'
+                            $ref: "#/components/schemas/AssinaturaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/AssinaturaDTO'
+                                $ref: "#/components/schemas/AssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/admin/users:
         get:
             tags:
@@ -384,14 +736,36 @@ paths:
                       items:
                           type: string
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
                                 type: array
                                 items:
-                                    $ref: '#/components/schemas/AdminUserDTO'
+                                    $ref: "#/components/schemas/AdminUserDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         put:
             tags:
                 - user-resource
@@ -400,15 +774,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/AdminUserDTO'
+                            $ref: "#/components/schemas/AdminUserDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/AdminUserDTO'
+                                $ref: "#/components/schemas/AdminUserDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         post:
             tags:
                 - user-resource
@@ -417,15 +813,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/AdminUserDTO'
+                            $ref: "#/components/schemas/AdminUserDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/User'
+                                $ref: "#/components/schemas/User"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/register:
         post:
             tags:
@@ -435,10 +853,10 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/ManagedUserVM'
+                            $ref: "#/components/schemas/ManagedUserVM"
                 required: true
             responses:
-                '201':
+                "201":
                     description: Created
     /api/padarias:
         get:
@@ -473,14 +891,36 @@ paths:
                       items:
                           type: string
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
                                 type: array
                                 items:
-                                    $ref: '#/components/schemas/PadariaDTO'
+                                    $ref: "#/components/schemas/PadariaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         post:
             tags:
                 - padaria-resource
@@ -489,15 +929,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/PadariaDTO'
+                            $ref: "#/components/schemas/PadariaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/PadariaDTO'
+                                $ref: "#/components/schemas/PadariaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/items-assinaturas:
         get:
             tags:
@@ -531,14 +993,36 @@ paths:
                       items:
                           type: string
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
                                 type: array
                                 items:
-                                    $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                                    $ref: "#/components/schemas/ItemsAssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         post:
             tags:
                 - items-assinatura-resource
@@ -547,15 +1031,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                            $ref: "#/components/schemas/ItemsAssinaturaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/ItemsAssinaturaDTO'
+                                $ref: "#/components/schemas/ItemsAssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/informacoes-adicionais:
         get:
             tags:
@@ -589,14 +1095,36 @@ paths:
                       items:
                           type: string
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
                                 type: array
                                 items:
-                                    $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                                    $ref: "#/components/schemas/InformacoesAdicionaisDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         post:
             tags:
                 - informacoes-adicionais-resource
@@ -605,27 +1133,71 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                            $ref: "#/components/schemas/InformacoesAdicionaisDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/InformacoesAdicionaisDTO'
+                                $ref: "#/components/schemas/InformacoesAdicionaisDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/authenticate:
         get:
             tags:
                 - account-resource
             operationId: isAuthenticated
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
                                 type: string
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         post:
             tags:
                 - user-jwt-controller
@@ -634,15 +1206,37 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/LoginVM'
+                            $ref: "#/components/schemas/LoginVM"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/JWTToken'
+                                $ref: "#/components/schemas/JWTToken"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/assinaturas:
         get:
             tags:
@@ -676,14 +1270,36 @@ paths:
                       items:
                           type: string
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
                                 type: array
                                 items:
-                                    $ref: '#/components/schemas/AssinaturaDTO'
+                                    $ref: "#/components/schemas/AssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         post:
             tags:
                 - assinatura-resource
@@ -692,27 +1308,71 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/AssinaturaDTO'
+                            $ref: "#/components/schemas/AssinaturaDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/AssinaturaDTO'
+                                $ref: "#/components/schemas/AssinaturaDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/account:
         get:
             tags:
                 - account-resource
             operationId: getAccount
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/AdminUserDTO'
+                                $ref: "#/components/schemas/AdminUserDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         post:
             tags:
                 - account-resource
@@ -721,11 +1381,33 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/AdminUserDTO'
+                            $ref: "#/components/schemas/AdminUserDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/account/reset-password/init:
         post:
             tags:
@@ -738,8 +1420,30 @@ paths:
                             type: string
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/account/reset-password/finish:
         post:
             tags:
@@ -749,11 +1453,33 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/KeyAndPasswordVM'
+                            $ref: "#/components/schemas/KeyAndPasswordVM"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/account/change-password:
         post:
             tags:
@@ -763,11 +1489,33 @@ paths:
                 content:
                     application/json:
                         schema:
-                            $ref: '#/components/schemas/PasswordChangeDTO'
+                            $ref: "#/components/schemas/PasswordChangeDTO"
                 required: true
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/users:
         get:
             tags:
@@ -801,28 +1549,72 @@ paths:
                       items:
                           type: string
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
                                 type: array
                                 items:
-                                    $ref: '#/components/schemas/UserDTO'
+                                    $ref: "#/components/schemas/UserDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/authorities:
         get:
             tags:
                 - public-user-resource
             operationId: getAuthorities
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
                                 type: array
                                 items:
                                     type: string
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/admin/users/{login}:
         get:
             tags:
@@ -837,12 +1629,34 @@ paths:
                           ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
                       type: string
             responses:
-                '200':
+                "200":
                     description: OK
                     content:
-                        '*/*':
+                        "*/*":
                             schema:
-                                $ref: '#/components/schemas/AdminUserDTO'
+                                $ref: "#/components/schemas/AdminUserDTO"
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
         delete:
             tags:
                 - user-resource
@@ -856,8 +1670,30 @@ paths:
                           ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
                       type: string
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
     /api/activate:
         get:
             tags:
@@ -870,8 +1706,30 @@ paths:
                   schema:
                       type: string
             responses:
-                '200':
+                "200":
                     description: OK
+                "400":
+                    $ref: '#/components/responses/400'
+                "401":
+                    $ref: '#/components/responses/401'
+                "403":
+                    $ref: '#/components/responses/403'
+                "413":
+                    $ref: '#/components/responses/413'
+                "422":
+                    $ref: '#/components/responses/422'
+                "429":
+                    $ref: '#/components/responses/429'
+                "500":
+                    $ref: '#/components/responses/500'
+                "501":
+                    $ref: '#/components/responses/501'
+                "502":
+                    $ref: '#/components/responses/502'
+                "503":
+                    $ref: '#/components/responses/503'
+                "504":
+                    $ref: '#/components/responses/504'
 components:
     schemas:
         PadariaDTO:
@@ -946,7 +1804,7 @@ components:
                     description: Nome de contato
                     type: string
                 user:
-                    $ref: '#/components/schemas/UserDTO'
+                    $ref: "#/components/schemas/UserDTO"
         UserDTO:
             description: Objeto com informações de usuário
             type: object
@@ -1018,9 +1876,9 @@ components:
                 diaDaSemana:
                     type: string
                 padaria:
-                    $ref: '#/components/schemas/PadariaDTO'
+                    $ref: "#/components/schemas/PadariaDTO"
                 user:
-                    $ref: '#/components/schemas/UserDTO'
+                    $ref: "#/components/schemas/UserDTO"
         ItemsAssinaturaDTO:
             description: Itens que compõe o pacote da assinatura
             required:
@@ -1063,7 +1921,7 @@ components:
                     type: integer
                     format: int32
                 assinatura:
-                    $ref: '#/components/schemas/AssinaturaDTO'
+                    $ref: "#/components/schemas/AssinaturaDTO"
         InformacoesAdicionaisDTO:
             description: Mais informações do usuário
             required:
@@ -1121,7 +1979,7 @@ components:
                     description: Complemento da residência do usuário
                     type: string
                 user:
-                    $ref: '#/components/schemas/UserDTO'
+                    $ref: "#/components/schemas/UserDTO"
         AdminUserDTO:
             description: Usuário admin
             required:
@@ -1291,50 +2149,378 @@ components:
             type: object
             properties:
                 id:
+                    description: id do usuário
                     type: integer
                     format: int64
                 login:
+                    description: Login do usuário
                     maxLength: 50
                     minLength: 1
                     pattern: >-
                         ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
                     type: string
                 firstName:
+                    description: Primeiro nome do usuário
                     maxLength: 50
                     minLength: 0
                     type: string
                 lastName:
+                    description: Úlimo nome do usuário
                     maxLength: 50
                     minLength: 0
                     type: string
                 email:
+                    description: Email do usuário
                     maxLength: 254
                     minLength: 5
                     type: string
                 activated:
+                    description: Ativo ou não
                     type: boolean
                 langKey:
+                    description: Linguagem do usuário
                     maxLength: 10
                     minLength: 2
                     type: string
                 imageUrl:
+                    description: Caminho do Avatar
                     maxLength: 256
                     minLength: 0
                     type: string
                 resetDate:
+                    description: Dia do reset
                     type: string
                     format: date-time
         KeyAndPasswordVM:
+            description: Objeto de chave e senha
             type: object
             properties:
                 key:
+                    description: Salt
                     type: string
                 newPassword:
+                    description: Senha
                     type: string
         PasswordChangeDTO:
+            description: Troca de senha
             type: object
             properties:
                 currentPassword:
+                    description: Senha atual
                     type: string
                 newPassword:
+                    description: Nova senha
                     type: string
+        Response400:
+            type: object
+            description: Bad Request
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                    example: 400
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 400
+                error:
+                    errorCode: GPE001
+                    errorMessage: Houve um erro na sua requisição
+        Response500:
+            type: object
+            description: Internal Server Error
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 500
+                error:
+                    errorCode: GPE002
+                    errorMessage: Houve um erro interno
+        Response401:
+            type: object
+            description: Unauthorized
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 401
+                error:
+                    errorCode: GPE003
+                    errorMessage: Você não está autorizado
+        Response403:
+            type: object
+            description: Forbidden
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 403
+                error:
+                    errorCode: GPE004
+                    errorMessage: Você não pode executar esta requisição.
+        Response408:
+            type: object
+            description: Request Timeout
+        Response413:
+            type: object
+            description: Payload too large
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 413
+                error:
+                    errorCode: GPE005
+                    errorMessage: Conteúdo da requisição muito grande
+        Response422:
+            type: object
+            description: Unprocessable Entity
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 422
+                error:
+                    errorCode: GPE006
+                    errorMessage: Não é possível processar
+        Response429:
+            type: object
+            description: Too Many Requests
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 429
+                error:
+                    errorCode: GPE007
+                    errorMessage: Muitas requisições em um curto período de tempo.
+        Response501:
+            type: object
+            description: Not Implemented
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 501
+                error:
+                    errorCode: GPE008
+                    errorMessage: API não implementada
+        Response502:
+            type: object
+            description: Bad Gateway
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 502
+                error:
+                    errorCode: GPE009
+                    errorMessage: Bad Gateway
+        Response503:
+            type: object
+            description: Service Unavailable
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 503
+                error:
+                    errorCode: GPE009
+                    errorMessage: Serviço indisponível
+        Response504:
+            type: object
+            description: Gateway Timeout
+            properties:
+                status:
+                    description: Status da resposta
+                    type: integer
+                error:
+                    description: Objeto de erros
+                    type: object
+                    properties:
+                        errorCode:
+                            type: string
+                            description: Código do erro
+                        errorMessage:
+                            type: string
+                            description: Mensagem do erro
+            example:
+                status: 504
+                error:
+                    errorCode: GPE010
+                    errorMessage: Gateway Timeout
+    responses:
+        "400":
+            description: Bad Request
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response400'
+        "401":
+            description: Unauthorized
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response401'
+        "403":
+            description: Forbidden
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response403'
+        "413":
+            description: Payload too large
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response413'
+        "422":
+            description: Unprocessable Entity
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response422'
+        "429":
+            description: Too many Requests
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response429'
+        "500":
+            description: Internal Server Error
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response500'
+        "501":
+            description:
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response501'
+        "502":
+            description: Bad Gateway
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response502'
+        "503":
+            description: Service Unavailable
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response503'
+        "504":
+            description: Gateway Timeout
+            content:
+                application/json:
+                    schema:
+                        $ref: '#/components/schemas/Response504'
