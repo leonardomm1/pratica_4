@@ -92,10 +92,6 @@
   </header>
 
   
-
-
-
-  
 {% endblock content %}
 
 <!-- Specific JS goes HERE --> 
@@ -109,8 +105,6 @@
 
   <script src="{{ url_for('static', filename='vendors/jquery/dist/jquery.min.js') }}"></script>
 
-  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
-  <script src="/static/assets/js/soft-design-system.min.js?v=1.0.1" type="text/javascript"></script>-->
   <script type="text/javascript">
     if (document.getElementById('state1')) {
       const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
@@ -136,21 +130,6 @@
         console.error(countUp2.error);
       };
     }
-  </script>
-
-  <script>
-
-    $(document).ready(function() {
-      //$('#image_background').animate({ opacity: 0.3 }, 2000);
-      //$('#image_background').attr('style', "background-image: url('/static/assets/img/curved-images/top-view-bread.jpg'); opacity: 0.3;");
-    }) 
-    
-    /*$('#font-classic').click(function() {
-        $('body').fadeOut('normal', function(){
-            $('body').fadeIn();
-        }});
-    });*/
-
   </script>
 
 {% endblock javascripts %}

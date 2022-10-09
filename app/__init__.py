@@ -15,10 +15,9 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
-    for module_name in ('base', 'forms', 'ui', 'home', 'tables', 'data', 'additional'):
+    for module_name in ('base', 'home'):
         module = import_module('app.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
-
 
 
 def configure_database(app):
@@ -39,20 +38,7 @@ def configure_logs(app):
 
 
 def apply_themes(app):
-    """
-    Add support for themes.
-
-    If DEFAULT_THEME is set then all calls to
-      url_for('static', filename='')
-      will modfify the url to include the theme name
-
-    The theme parameter can be set directly in url_for as well:
-      ex. url_for('static', filename='', theme='')
-
-    If the file cannot be found in the /static/<theme>/ lcation then
-      the url will not be modified and the file is expected to be
-      in the default /static/ location
-    """
+    
     @app.context_processor
     def override_url_for():
         return dict(url_for=_generate_url_for_theme)
